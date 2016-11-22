@@ -1,0 +1,313 @@
+#logo {
+	margin: -64px 0 0px -160px; /* play with these to position the image */
+	/*position:absolute;*/
+	z-index:100;
+	width:156px;
+	/*background-color: #fff;*/
+	padding: 5px;
+}
+
+video {width:100%; height:100%; position:fixed; top:0px; left:0px; z-index:-1000;
+  background-size: cover;
+}
+
+.list-inline {
+	position: relative;
+	top: -29px;
+	margin-bottom: -20px;
+}
+
+#navh4 {
+	position: relative;
+	top: -30px;
+}
+
+.navbar {
+	border: none;
+	border-top: 23px solid transparent;
+}
+
+.navbar-inverse .navbar-brand {
+	color: white;
+	font-family: 'Russo One', sans-serif;
+	font-size: 15px;
+	
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+	margin-left: 150px;
+}
+
+.navbar-inverse {
+	background-image: none;
+	/*background-color: black;*/
+	border-color: #1d5510;
+
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	color: white;
+	font-family: 'Share Tech', sans-serif;
+
+}
+
+.h1, h1 {
+	font-size: 40px;
+	text-shadow: 0 2px 0 #1d5510;
+	text-decoration: underline;
+}
+
+
+.h2, h2 {
+	font-size: 36px;
+	text-shadow: 0 2px 0 #1d5510;
+}
+
+
+.h4, h4 {
+	font-size: 16px;
+}
+
+#sts {
+	border: 5px groove;	
+}
+
+
+/*The only way I could get the hangman images to not overlay the section below it on a smaller screen 
+was to put this dummy image without absolute positioning to push the row down*/
+#hm_bg_holder {
+	border: 5px groove;
+	float: left;
+	z-index: 0;
+	opacity: 0;
+}
+
+#hm_bg {
+	border: 5px groove;
+	position: absolute;
+	margin:auto;
+	height: auto;
+	z-index: 1;
+}
+
+
+#hm_01 {
+	position: absolute;
+	margin:auto;
+	height: auto;
+	z-index: 2;
+/*	display: inline-block;
+*/}
+
+#hm_02 {
+	position: absolute;
+	margin:auto;
+	height: auto;
+	z-index: 3;
+/*	display: none;
+*/}
+
+#hm_03 {
+	position: absolute;
+	margin:auto;
+	height: auto;
+	z-index: 4;
+/*	display: none;
+*/}
+
+#hm_04 {
+	position: absolute;
+	margin:auto;
+	height: auto;
+	z-index: 5;
+/*	display: none;
+*/}
+
+#hm_05 {
+	position: absolute;
+	margin:auto;
+	height: auto;
+	z-index: 6;
+/*	display: none;
+*/}
+
+#hm_06 {
+	position: absolute;
+	margin:auto;
+	height: auto;
+	z-index: 7;
+/*	display: none;
+*/}
+
+#hm_07 {
+	position: absolute;
+	margin:auto;
+	height: auto;
+	z-index: 8;
+/*	display: none;
+*/}
+
+#hm_08 {
+	position: absolute;
+	margin:auto;
+	height: auto;
+	z-index: 9;
+/*	display: none;
+*/}
+
+.margin-bottom-xs {margin-bottom: 5px;}  
+.margin-bottom-sm {margin-bottom: 10px;} 
+.margin-bottom-md {margin-bottom: 15px;}
+.margin-bottom-lg {margin-bottom: 30px;}  
+
+@keyframes imghover {
+    from {opacity: .5;}
+    to {opacity: 1;}
+ }
+
+@keyframes flash {
+    from {opacity: 1;}
+    to {opacity: 0;}
+ }
+
+@keyframes miss {
+    from {opacity: 0;}
+    to {opacity: 1;}
+ }
+
+.miss {
+    animation-name: miss;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+}
+
+
+.area{
+  animation-name: flash;
+  animation-iteration-count: 5;
+  animation-duration: .5s;
+  line-height: 1;
+  font-size:100px;
+  color:#fff;
+  font-weight:700;
+  /*text-shadow:0px 0px 5px #fff,
+      0px 0px 7px #fff;*/
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  background-image: url("../images/backdrop03.jpg"); 
+}
+
+#game-container {
+	margin-left: 5px;
+}
+
+.flex-container {
+    display: -webkit-center;
+    display: center;
+    width: 200px;
+    height: 300px;
+    background-color: white;
+    margin-right: 10px;
+    float: left;
+}
+
+.flex-item {
+/*    background-color: white;*/
+    width: 100%;
+    margin: auto;
+}
+#rebel {
+	border-radius: 25px;
+    border: 10px double green;
+}
+
+#dark {
+	border-radius: 25px;
+    border: 10px double red;
+}
+
+.chooseplyrhdr {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.chooseopphdr {
+	position: absolute;
+	top: 385px;
+	left: 0px;
+}
+
+.player1 {
+	position: absolute;
+	top: 40px;
+	left: 0px;
+}
+
+.player2 {
+	position: absolute;
+	top: 40px;
+	left: 210px;
+}
+
+.player3 {
+	position: absolute;
+	top: 40px;
+	left: 420px;
+}
+
+.player4 {
+	position: absolute;
+	top: 40px;
+	left: 630px;
+}
+
+.playerName, .hp {
+	font-family: 'Share Tech', sans-serif;
+	color: gold;
+	font-size: 27px;
+	-webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #1d5510;
+  border-bottom  : 20px solid black;
+}
+
+.container .text-muted {
+  margin: 10px 0;
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+.carousel-caption {
+    right: 19%;
+    left: 19%;
+
+ }
+}
+
+@media screen and (max-width: 768px) {
+	#logo {
+		margin: -44px 0 0px -161px; 
+	}
+
+	.byname{
+		display: none;
+	}
+
+ }
