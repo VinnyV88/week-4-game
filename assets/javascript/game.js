@@ -47,39 +47,41 @@ $(document).ready(function() {
 					  char4 = {health: 180, attack: 4, attackinc: 4, counteratt: 25}
 					 ],
 		Characters: [obiwan = {name: "Obi-Wan Kenobi", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Old Obi Wan.png", imgfight: "Old Obi Wan.png", imgwin: "", imglose: ""},
+					imgrdy: "Old Obi Wan.png", imgfightp: "Old Obi Wan.png", imgfighte: "Old Obi WanE.png", imgwin: "", imglose: ""},
 					luke = {name: "Luke Skywalker", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Luke Skywalker 03.png", imgfight: "Luke Skywalker 01.png", imgwin: "", imglose: ""},
+					imgrdy: "Luke Skywalker 03.png", imgfightp: "Luke Skywalker 01.png", imgfighte: "Luke Skywalker 01E.png", imgwin: "", imglose: ""},
 					leia = {name: "Princess Leia", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Leia.png", imgfight: "Padme Amidala.png", imgwin: "", imglose: ""},
+					imgrdy: "Leia.png", imgfightp: "Padme Amidala.png", imgfighte: "Padme AmidalaE.png", imgwin: "", imglose: ""},
 					chewy = {name: "Chewbacca", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Chewbacca.png", imgfight: "chewy.png", imgwin: "", imglose: ""},
+					imgrdy: "Chewbacca.png", imgfightp: "chewy.png", imgfighte: "chewyE.png", imgwin: "", imglose: ""},
 					han = {name: "Han Solo", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Han Solo 01.png", imgfight: "Han Solo 02.png", imgwin: "", imglose: ""},
+					imgrdy: "Han Solo 01.png", imgfightp: "Han Solo 02.png", imgfighte: "Han Solo 02E.png", imgwin: "", imglose: ""},
 					yoda = {name: "Yoda", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Yoda 01.png", imgfight: "yoda_w_sabre.png", imgwin: "", imglose: ""},
+					imgrdy: "Yoda 02.png", imgfightp: "Yoda 01.png", imgfighte: "Yoda 01E.png", imgwin: "", imglose: ""},
 					boba = {name: "Boba Fett", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Boba Fett.png", imgfight: "Boba Fett.png", imgwin: "", imglose: ""},
+					imgrdy: "Boba Fett.png", imgfightp: "Boba Fett.png", imgfighte: "Boba FettE.png", imgwin: "", imglose: ""},
 					r2d2 = {name: "R2-D2", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "R2D2 02.png", imgfight: "R2D2 01.png", imgwin: "", imglose: ""},
+					imgrdy: "R2D2 02.png", imgfightp: "R2D2 01.png", imgfighte: "R2D2 01E.png", imgwin: "", imglose: ""},
 					vader = {name: "Darth Vader", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Vader 01.png", imgfight: "Vader 03.png", imgwin: "", imglose: ""},
+					imgrdy: "Vader 01.png", imgfightp: "Vader 03.png", imgfighte: "Vader 03E.png", imgwin: "", imglose: ""},
 					maul = {name: "Darth Maul", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Darth Maul 02.png", imgfight: "Darth Maul 01.png", imgwin: "", imglose: ""},
+					imgrdy: "Darth Maul 02.png", imgfightp: "Darth Maul 01.png", imgfighte: "Darth Maul 01E.png", imgwin: "", imglose: ""},
 					c3po = {name: "C-3PO", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "C3PO.png", imgfight: "C3PO.png", imgwin: "", imglose: ""},
+					imgrdy: "C3PO.png", imgfightp: "C3PO.png", imgfighte: "C3POE.png", imgwin: "", imglose: ""},
 					jabba = {name: "Jabba the Hut", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Java the Hutt.png", imgfight: "Java the Hutt.png", imgwin: "", imglose: ""},
+					imgrdy: "Java the Hutt.png", imgfightp: "Java the Hutt.png", imgfighte: "Java the HuttE.png", imgwin: "", imglose: ""},
 					emperor = {name: "The Emperor", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "emperor.png", imgfight: "emperor.png", imgwin: "", imglose: ""},
+					imgrdy: "emperor.png", imgfightp: "emperor.png", imgfighte: "emperorE.png", imgwin: "", imglose: ""},
 					ewok = {name: "Ewok", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Wicket Warrick.png", imgfight: "Ewoks.png", imgwin: "", imglose: ""},
+					imgrdy: "Ewoks.png", imgfightp: "Wicket Warrick.png", imgfighte: "Wicket WarrickE.png", imgwin: "", imglose: ""},
 					storm = {name: "Storm Trooper", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Stormtrooper 02.png", imgfight: "Stormtrooper 02.png", imgwin: "", imglose: ""}
+					imgrdy: "Stormtrooper 02.png", imgfightp: "Stormtrooper 02.png", imgfighte: "Stormtrooper 02E.png", imgwin: "", imglose: ""}
 				   ],
 	   	selChars: [],
 		selPlayer: {},
+		selPlayerIndex: 0,
 		selEnemy: {},
+		selEnemyIndex: 0,
 
 		initial: function() {
 			this.chooseCharacters();
@@ -105,18 +107,18 @@ $(document).ready(function() {
 
 			var playerClass = "";
 
-			for (var i = 1; i <= 4; i++) {
+			for (var i = 0; i < 4; i++) {
 				playerClass = "player" + i.toString();
 				var newPlayerDiv = $("<div>").addClass("flex-container player " + playerClass)
-				    .attr("id", this.selChars[i-1].type).attr("data-player-chosen", "no").attr("data-vs-chosen", "no")
-				    .attr("data-player-id", i-1)
+				    .attr("id", this.selChars[i].type).attr("data-player-chosen", "no").attr("data-vs-chosen", "no")
+				    .attr("data-player-id", i).attr("data-defeated", false)
 
 
 				// $(".chooseplyr").append(newPlayerDiv);
 
 				var newPlayerNameDiv = $("<div>").addClass("text-center flex-item playerName");
 				
-				var newNameP = $("<p>").text(this.selChars[i-1].name);
+				var newNameP = $("<p>").text(this.selChars[i].name);
 				
 
 				// $(playerClass).append(newPlayerNameDiv);
@@ -124,11 +126,11 @@ $(document).ready(function() {
 				var newPlayerImgDiv = $("<div>").addClass("flex-item");
 				
 				var newImg = $("<img>").attr("style", "width:100%")
-				    .attr("src", "assets/images/" + this.selChars[i-1].imgrdy).attr("alt", "Player " + i);
+				    .attr("src", "assets/images/" + this.selChars[i].imgrdy).attr("alt", "Player " + i);
 
 				var newPlayerHPDiv = $("<div>").addClass("text-center flex-item hp");
 				
-				newHPp = $("<p>").text("HP: " + this.selChars[i-1].hp);
+				newHPp = $("<p>").text("HP: " + this.selChars[i].hp);
 				
 				newPlayerNameDiv.append(newNameP);
 				newPlayerDiv.append(newPlayerNameDiv);
@@ -143,26 +145,104 @@ $(document).ready(function() {
 
 			} // end for loop
 
-		} // end writeChoosePlayer
+		}, // end writeChoosePlayer
+
+		createBattlefield: function() {
+			// $("body").css("background-image", "url(\"assets/images/backdrop08.jpg\") no-repeat");
+			// $("chooseplyrhdr").css("display", "none");
+			// $("chooseplyr").css("display", "none");
+			// $("chooseopphdr").css("display", "none");
+
+			var vsTitle = this.selPlayer.name + " vs. " + this.selEnemy.name
+
+			$(".battleground").empty()
+			//Use flex box to contain battle images
+
+			// Player Fighter Generation
+			var PlayerFighterDiv = $("<div>").addClass("flex-battle playerfighter").attr("id", this.selPlayer.type + "fighter")
+
+			var PlayerFighterNameDiv = $("<div>").addClass("text-center flex-item playerName");
+			
+			var PlayerFighterNameP = $("<p>").text(this.selPlayer.name);
+
+			var PlayerFighterImgDiv = $("<div>").addClass("flex-item");
+			
+			var PlayerFighterImg = $("<img>").attr("style", "width:100%")
+			    .attr("src", "assets/images/" + this.selPlayer.imgfightp).attr("alt", "Player Fighter");
+
+			var PlayerFighterHPDiv = $("<div>").addClass("text-center flex-item hp");
+			
+			PlayerFighterHPp = $("<p>").text("HP: " + this.selPlayer.hp);
+			
+			PlayerFighterNameDiv.append(PlayerFighterNameP);
+			PlayerFighterDiv.append(PlayerFighterNameDiv);
+			
+			PlayerFighterImgDiv.append(PlayerFighterImg);
+			PlayerFighterDiv.append(PlayerFighterImgDiv);
+
+			PlayerFighterHPDiv.append(PlayerFighterHPp);
+			PlayerFighterDiv.append(PlayerFighterHPDiv);
+
+
+			// Enemy Fighter Generation
+			var EnemyFighterDiv = $("<div>").addClass("flex-battle enemyfighter").attr("id", this.selEnemy.type + "fighter")
+
+			var EnemyFighterNameDiv = $("<div>").addClass("text-center flex-item playerName");
+			
+			var EnemyFighterNameP = $("<p>").text(this.selEnemy.name);
+
+			var EnemyFighterImgDiv = $("<div>").addClass("flex-item");
+			
+			var EnemyFighterImg = $("<img>").attr("style", "width:100%")
+			    .attr("src", "assets/images/" + this.selEnemy.imgfighte).attr("alt", "Enemy Fighter");
+
+			var EnemyFighterHPDiv = $("<div>").addClass("text-center flex-item hp");
+			
+			EnemyFighterHPp = $("<p>").text("HP: " + this.selEnemy.hp);
+			
+			EnemyFighterNameDiv.append(EnemyFighterNameP);
+			EnemyFighterDiv.append(EnemyFighterNameDiv);
+			
+			EnemyFighterImgDiv.append(EnemyFighterImg);
+			EnemyFighterDiv.append(EnemyFighterImgDiv);
+
+			EnemyFighterHPDiv.append(EnemyFighterHPp);
+			EnemyFighterDiv.append(EnemyFighterHPDiv);
+
+			//Use a drop down modal box to carry out the battle scene
+
+			$(".modal-title").html(vsTitle)
+
+			$(".battleground").append(PlayerFighterDiv);
+
+			$(".battleground").append(EnemyFighterDiv);
+
+			$('#battleModal').modal({
+				backdrop: "static",
+				keyboard: false})
+		}
 
 	}; // end starwars game object
 
 
 starwars.initial()
 
-	$(".player").on("click", function() {
+$(".player").on("click", function() {
 		//When a player is picked, move him to the left most position
 		//Move the other players (siblings) to the Opponents area
 		var playerChosen = ($(this).data("player-chosen"));
 		var vsChosen = ($(this).data("vs-chosen"));
 		var chosenPlayerId = ($(this).data("player-id"));
+		var defeatedOpp = ($(this).data("defeated"));
 
 		if (playerChosen === "no") {
+			$(".chooseopphdr").append("<h1>Choose Your Opponent</h1>");
 			starwars.selPlayer = starwars.selChars[chosenPlayerId];
+			starwars.selPlayerIndex = chosenPlayerId;
 			var leftpx = 0;
 			var siblings = $(this).siblings();
 			$(siblings).each(function() {
-				$(this).animate({ top: "+=400px" }, "normal");
+				$(this).animate({ top: "+=360px" }, "normal");
 				$(this).animate({ left: leftpx }, "normal");
 				leftpx += 210;
 			});
@@ -172,13 +252,16 @@ starwars.initial()
 	        $(".player").data("player-chosen", "yes");
 
 	    } //end if
-    	else if (vsChosen === "no") {
+    	// else if (vsChosen === "no") {
+    	else if (!(defeatedOpp)) {
     		if (!(starwars.selPlayer === starwars.selChars[chosenPlayerId])) {
     			starwars.selEnemy = starwars.selChars[chosenPlayerId];
+    			starwars.selEnemyIndex = chosenPlayerId;
 
     			$(".player").data("vs-chosen", "yes");
 
-    			alert("start battle: " + starwars.selPlayer.name + " vs. " + starwars.selEnemy.name);
+    			starwars.createBattlefield()
+    			// alert("start battle: " + starwars.selPlayer.name + " vs. " + starwars.selEnemy.name);
 
     		}
     	}
@@ -189,7 +272,73 @@ starwars.initial()
 	    // console.log($(".player4").data("player-chosen"));
 
 
-      });
+      }); // close player.onclick
+
+$(".btn-attack").on("click", function() {
+
+	// Hit Enemy and inflict damage equal to Player's Attack Points
+	// Increase Player's Attack Points by Attack Points Increment for next Attack
+	// Check to see if Enemy has been defeated
+	// If Enemy is not defeated, Enemy will Counter Attack and inflict damage equal to Counter Attack Points
+	// Check to see if Player has been defeated
+
+	starwars.selEnemy.hp -= starwars.selPlayer.ap
+	
+
+	$("div.enemyfighter").children("div.hp").html("<p>HP: " + starwars.selEnemy.hp + "</p>");
+	//update Player cards
+
+	if (starwars.selEnemy.hp > 0) {
+		starwars.selPlayer.hp -= starwars.selEnemy.ap
+		$("div.playerfighter").children("div.hp").html("<p>HP: " + starwars.selPlayer.hp + "</p>");
+	}
+	else {
+		$(".btn-retreat").trigger("click");
+		//Mark Enemy as being defeated in the opponent area
+		//close modal and allow player to select a new opponent
+	}
+
+if (starwars.selPlayer.hp > 0) {
+		starwars.selPlayer.ap += starwars.selPlayer.api
+	}
+	else {
+		//Player is defeated 
+		//Game Over
+	}	
+
+
+
+
+}); // close btn-attack.onclick
+
+
+$(".btn-retreat").on("click", function() {
+
+	// Update Player and Enemy cards with current values
+	// close modal and allow player to select a new opponent
+
+	starwars.selChars[starwars.selPlayerIndex].hp = starwars.selPlayer.hp
+	starwars.selChars[starwars.selPlayerIndex].ap = starwars.selPlayer.ap
+
+	starwars.selChars[starwars.selEnemyIndex].hp = starwars.selEnemy.hp
+
+	//Update Main Page cards
+	var selPlayerTag = "div.player" + starwars.selPlayerIndex
+	var selEnemyTag = "div.player" + starwars.selEnemyIndex
+
+	$(selPlayerTag).children("div.hp").html("<p>HP: " + starwars.selPlayer.hp + "</p>");
+	$(selEnemyTag).children("div.hp").html("<p>HP: " + starwars.selEnemy.hp + "</p>");
+
+	if (starwars.selEnemy.hp <= 0) {
+		$(selEnemyTag).data("defeated", true);
+		var EnemyDefDiv = $("<div>").addClass("text-center flex-defeated").html("<p class=\"defeated\">DEFEATED</p>");
+
+		$(selEnemyTag).append(EnemyDefDiv);
+	}
+
+
+
+}); // close btn-attack.onclick
 
 
 

@@ -11,39 +11,6 @@ video {width:100%; height:100%; position:fixed; top:0px; left:0px; z-index:-1000
   background-size: cover;
 }
 
-.list-inline {
-	position: relative;
-	top: -29px;
-	margin-bottom: -20px;
-}
-
-#navh4 {
-	position: relative;
-	top: -30px;
-}
-
-.navbar {
-	border: none;
-	border-top: 23px solid transparent;
-}
-
-.navbar-inverse .navbar-brand {
-	color: white;
-	font-family: 'Russo One', sans-serif;
-	font-size: 15px;
-	
-}
-
-.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-	margin-left: 150px;
-}
-
-.navbar-inverse {
-	background-image: none;
-	/*background-color: black;*/
-	border-color: #1d5510;
-
-}
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
 	color: white;
@@ -54,7 +21,7 @@ video {width:100%; height:100%; position:fixed; top:0px; left:0px; z-index:-1000
 .h1, h1 {
 	font-size: 40px;
 	text-shadow: 0 2px 0 #1d5510;
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 }
 
 
@@ -67,93 +34,6 @@ video {width:100%; height:100%; position:fixed; top:0px; left:0px; z-index:-1000
 .h4, h4 {
 	font-size: 16px;
 }
-
-#sts {
-	border: 5px groove;	
-}
-
-
-/*The only way I could get the hangman images to not overlay the section below it on a smaller screen 
-was to put this dummy image without absolute positioning to push the row down*/
-#hm_bg_holder {
-	border: 5px groove;
-	float: left;
-	z-index: 0;
-	opacity: 0;
-}
-
-#hm_bg {
-	border: 5px groove;
-	position: absolute;
-	margin:auto;
-	height: auto;
-	z-index: 1;
-}
-
-
-#hm_01 {
-	position: absolute;
-	margin:auto;
-	height: auto;
-	z-index: 2;
-/*	display: inline-block;
-*/}
-
-#hm_02 {
-	position: absolute;
-	margin:auto;
-	height: auto;
-	z-index: 3;
-/*	display: none;
-*/}
-
-#hm_03 {
-	position: absolute;
-	margin:auto;
-	height: auto;
-	z-index: 4;
-/*	display: none;
-*/}
-
-#hm_04 {
-	position: absolute;
-	margin:auto;
-	height: auto;
-	z-index: 5;
-/*	display: none;
-*/}
-
-#hm_05 {
-	position: absolute;
-	margin:auto;
-	height: auto;
-	z-index: 6;
-/*	display: none;
-*/}
-
-#hm_06 {
-	position: absolute;
-	margin:auto;
-	height: auto;
-	z-index: 7;
-/*	display: none;
-*/}
-
-#hm_07 {
-	position: absolute;
-	margin:auto;
-	height: auto;
-	z-index: 8;
-/*	display: none;
-*/}
-
-#hm_08 {
-	position: absolute;
-	margin:auto;
-	height: auto;
-	z-index: 9;
-/*	display: none;
-*/}
 
 .margin-bottom-xs {margin-bottom: 5px;}  
 .margin-bottom-sm {margin-bottom: 10px;} 
@@ -195,8 +75,6 @@ was to put this dummy image without absolute positioning to push the row down*/
 }
 
 
-/* Sticky footer styles
--------------------------------------------------- */
 html {
   position: relative;
   min-height: 100%;
@@ -219,11 +97,46 @@ body {
     float: left;
 }
 
+.flex-defeated {
+	width: 200px;
+    height: 300px;
+    background-color: black;
+    opacity: .75;
+    z-index: 100;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    border-radius: 25px;
+}
+
+.defeated {
+	font-family: 'Share Tech', sans-serif;
+  	font-size: 56px;
+  	font-weight: bold;
+  	color: red;
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+    position: absolute;
+    top: 112px;
+    left: -7px;
+}
+
 .flex-item {
 /*    background-color: white;*/
     width: 100%;
     margin: auto;
 }
+
+.flex-battle {
+    display: -webkit-center;
+    display: center;
+    width: 200px;
+    height: 300px;
+    margin-right: 10px;
+    float: left;
+}
+
 #rebel {
 	border-radius: 25px;
     border: 10px double green;
@@ -242,35 +155,47 @@ body {
 
 .chooseopphdr {
 	position: absolute;
-	top: 385px;
+	top: 355px;
+	left: 0px;
+}
+
+.player0 {
+	position: absolute;
+	top: 70px;
 	left: 0px;
 }
 
 .player1 {
 	position: absolute;
-	top: 40px;
-	left: 0px;
+	top: 70px;
+	left: 210px;
 }
 
 .player2 {
 	position: absolute;
-	top: 40px;
-	left: 210px;
+	top: 70px;
+	left: 420px;
 }
 
 .player3 {
 	position: absolute;
-	top: 40px;
-	left: 420px;
-}
-
-.player4 {
-	position: absolute;
-	top: 40px;
+	top: 70px;
 	left: 630px;
 }
 
-.playerName, .hp {
+.playerfighter {
+	position: absolute;
+	top: 293px;
+	left: 289px;
+}
+
+.enemyfighter {
+	position: absolute;
+	top: 293px;
+	left: 495px;
+}
+
+.playerName, .hp, .modal-title {
 	font-family: 'Share Tech', sans-serif;
 	color: gold;
 	font-size: 27px;
@@ -278,36 +203,23 @@ body {
     -webkit-text-stroke-color: black;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #1d5510;
-  border-bottom  : 20px solid black;
+.modal-content {
+	/*background-image: url("../images/starburst.jpg"); */
+	background-color: transparent;
 }
 
-.container .text-muted {
-  margin: 10px 0;
-  color: white;
+.modal-body {
+	background-image: url("../images/backdrop08.jpg"); 
+	min-height: 575px;
 }
 
-@media screen and (min-width: 768px) {
-.carousel-caption {
-    right: 19%;
-    left: 19%;
-
- }
+.btn-default {
+	background: #525E6E;
+	color: white;
+	text-shadow: none;
 }
 
-@media screen and (max-width: 768px) {
-	#logo {
-		margin: -44px 0 0px -161px; 
-	}
+.btn-attack {
+	left: -730px;
+}
 
-	.byname{
-		display: none;
-	}
-
- }

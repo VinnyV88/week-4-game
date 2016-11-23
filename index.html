@@ -27,25 +27,62 @@
         <!-- <img id="bgpic" src="assets/images/backdrop03.jpg" alt="game background"> -->
     </div>
     <div class="container" id="game-container">
-        <!-- <div class="row margin-bottom-lg">
-            <div class="col-lg-12">
-                <img class="img-responsive" style="width:100%" src="assets/images/Star_Wars_Logo.png" alt="Star Wars Logo">
-            </div>
-        </div> -->
-        <div class="row margin-bottom-lg">
+        <div class="row">
             <div class="col-md-12 chooseplyrhdr">
                 <h1>Choose Your Player</h1>
             </div>
         </div>
-        <div class="row margin-bottom-lg">
+        <div class="row">
             <div class="col-md-12 chooseplyr">
  
             </div>
-                <div class="col-md-12 chooseopphdr">
-                    <h1>Choose Your Opponent</h1>
-                </div>
-
+        </div>
+        <div class="row">
+            <div class="col-md-12 chooseopphdr">
+                
             </div>
+        </div>
+
+        <!-- Trigger the modal with a button -->
+<!--         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Start Fight</button>
+ -->
+        <!-- Modal -->
+        <div id="battleModal" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                <h4 class="modal-title text-center"> </h4>
+              </div>
+              <div class="modal-body battleground">
+                
+              </div>
+              <div class="modal-footer">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-attack">Attack!</button>
+
+                    <button type="button" class="btn btn-default btn-retreat" data-dismiss="modal">Retreat</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        
+<!--         <div class="overlay" id="overlay" style="display:none;"></div>
+
+        <div class="box" id="box">
+            <a class="boxclose" id="boxclose"></a>
+            <h1>Important message</h1>
+            <div class="col-md-12 battleground">
+                
+            </div>
+        </div> -->
+       
+    </div>
             <script src="https://code.jquery.com/jquery.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             <script src="assets/javascript/game.js"></script>
