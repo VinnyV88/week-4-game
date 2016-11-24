@@ -23,9 +23,6 @@
     <audio autoplay>
         <source src="assets/audio/breaking_bad_theme.mp3" type="audio/mp3">
     </audio> -->
-    <div id="background">
-        <!-- <img id="bgpic" src="assets/images/backdrop03.jpg" alt="game background"> -->
-    </div>
     <div class="container" id="game-container">
         <div class="row">
             <div class="col-md-12 chooseplyrhdr">
@@ -48,9 +45,6 @@
             </div>
         </div>
 
-        <!-- Trigger the modal with a button -->
-<!--         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Start Fight</button>
- -->
         <!-- Battle Modal -->
         <div id="battleModal" class="modal fade" role="dialog">
           <div class="modal-dialog modal-lg">
@@ -58,7 +52,6 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
                 <h4 class="modal-title battleground-title text-center"> </h4>
               </div>
               <div class="modal-body battleground-body">
@@ -70,53 +63,12 @@
                   </div>    
               </div>
               <div class="modal-footer">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-lg btn-attack">Attack!</button>
-
-                    <button type="button" class="btn btn-lg btn-retreat" data-dismiss="modal">Retreat</button>
+                <div class="modal-btn-group">
                 </div>
               </div>
             </div>
-
           </div>
         </div>
-
-        <!-- Game Over Modal -->
-        <div id="GameOverModal" class="modal fade" role="dialog">
-          <div class="modal-dialog modal-lg">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title gameover-title text-center"> </h4>
-              </div>
-              <div class="modal-body gameover-body">
-                  <div class="gameover" >
-                      
-                  </div>
-                  <div class="gameover-messages">
-
-                  </div>    
-              </div>
-              <div class="modal-footer">
-                 <button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        
-<!--         <div class="overlay" id="overlay" style="display:none;"></div>
-
-        <div class="box" id="box">
-            <a class="boxclose" id="boxclose"></a>
-            <h1>Important message</h1>
-            <div class="col-md-12 battleground">
-                
-            </div>
-        </div> -->
-       
     </div>
             <script src="https://code.jquery.com/jquery.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

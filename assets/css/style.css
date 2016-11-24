@@ -22,7 +22,6 @@ video {width:100%; height:100%; position:fixed; top:0px; left:0px; z-index:-1000
 	font-size: 40px;
 	text-shadow: 0 2px 0 #1d5510;
 	margin-top: 0px;
-	/*text-decoration: underline;*/
 }
 
 
@@ -66,19 +65,21 @@ video {width:100%; height:100%; position:fixed; top:0px; left:0px; z-index:-1000
 }
 
 
-.battleground-message, .gameoverFlash {
+.gameoverFlash {
   animation-name: flash;
   animation-iteration-count: 3;
   animation-duration: .5s;
-  animation-delay: .5s;
-/*  line-height: 1;
-  font-size:100px;
-  color:#fff;
-  font-weight:700;*/
-  /*text-shadow:0px 0px 5px #fff,
-      0px 0px 7px #fff;*/
+  /*animation-delay: 4.5s;*/
+
 }
 
+.battleground-message {
+  animation-name: flash;
+  animation-iteration-count: 3;
+  animation-duration: .2s;
+  /*animation-delay: .5s;*/
+
+}
 
 html {
   position: relative;
@@ -88,6 +89,33 @@ body {
   background-image: url("../images/backdrop03.jpg"); /*backdrops 03, 05, 10 are good for body*/
   background-repeat: no-repeat;
   background-color: #525E6E;
+
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform 300ms ease-out 0ms;
+    transition-property: transform;
+    transition-duration: .5s;
+    transition-timing-function: ease-out;
+    transition-delay: 0ms;
+/*    -webkit-transform: translate(0,-25%);
+    -ms-transform: translate(0,-25%);
+    -o-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+*/
+}
+
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .5s linear;
+    -o-transition: opacity .5s linear;
+    transition: opacity .5s linear 0ms;
+    transition-property: opacity;
+    transition-duration: .5s;
+    transition-timing-function: linear;
+    transition-delay: 0ms;
 }
 
 .main-messages {
@@ -98,6 +126,10 @@ body {
 
 .modal-dialog {
 	margin: 15px auto;
+}
+
+.modal-header {
+	padding: 0px;
 }
 
 #game-container {
@@ -261,6 +293,10 @@ body {
 }
 
 .btn-attack {
-	left: -690px;
+	position: absolute;
+	left: 15px;
 }
 
+.btn-newgame {
+	margin-left: 360px;
+}
