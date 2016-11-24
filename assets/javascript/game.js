@@ -36,10 +36,6 @@ $(document).ready(function() {
 	    return array;
 	};
 
-	var charsShuffled = [];
-	var charsSelected = [];
-	var attribsShuffled = [];
-
 	var starwars = {
 		charAttribs: [char1 = {health: 120, attack: 8, attackinc: 8, counteratt: 15},
 					  char2 = {health: 100, attack: 10, attackinc: 10, counteratt: 5},
@@ -77,29 +73,35 @@ $(document).ready(function() {
 					storm = {name: "Storm Trooper", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
 					imgrdy: "Stormtrooper 02.png", imgfightp: "Stormtrooper 02.png", imgfighte: "Stormtrooper 02E.png", imgwin: "", imglose: ""}
 				   ],
+		charsShuffled:[],
+		attribsShuffled: [],
 	   	selChars: [],
 		selPlayer: {},
 		selPlayerIndex: 0,
 		selEnemy: {},
 		selEnemyIndex: 0,
+		GameOver: false,
 
 		initial: function() {
+			$(".battleground-messages").empty()
+			$(".gameover-messages").empty()
 			this.chooseCharacters();
 			this.writeChosenCharacters();
+			this.GameOver = false;
 		},
 
 		chooseCharacters: function() {
-			charsShuffled = shuffleArray(this.Characters);
-			attribsShuffled = shuffleArray(this.charAttribs);
+			this.charsShuffled = shuffleArray(this.Characters);
+			this.attribsShuffled = shuffleArray(this.charAttribs);
 
 			for (var i = 0; i < 4; i++) {
 
-				charsShuffled[i].hp = attribsShuffled[i].health;
-				charsShuffled[i].ap = attribsShuffled[i].attack;
-				charsShuffled[i].api = attribsShuffled[i].attackinc;
-				charsShuffled[i].cap = attribsShuffled[i].counteratt;
+				this.charsShuffled[i].hp = this.attribsShuffled[i].health;
+				this.charsShuffled[i].ap = this.attribsShuffled[i].attack;
+				this.charsShuffled[i].api = this.attribsShuffled[i].attackinc;
+				this.charsShuffled[i].cap = this.attribsShuffled[i].counteratt;
 
-				this.selChars.push(charsShuffled[i]);
+				this.selChars.push(this.charsShuffled[i]);
 			};
 		},
 
@@ -153,9 +155,25 @@ $(document).ready(function() {
 			// $("chooseplyr").css("display", "none");
 			// $("chooseopphdr").css("display", "none");
 
-			var vsTitle = this.selPlayer.name + " vs. " + this.selEnemy.name
+			var vsTitle = this.selPlayer.name + " vs. " + this.selEnemy.name;
+			var battleClass = ".battleground"
 
-			$(".battleground").empty()
+			$(".battleground").empty();
+			$(".battleground-messages").empty();
+
+			this.createFighters(battleClass);
+
+			//Use a drop down modal box to carry out the battle scene
+
+			$(".battleground-title").html(vsTitle)
+
+			$('#battleModal').modal({
+				backdrop: "static",
+				keyboard: false})
+		}, //end createBattlefield
+
+		createFighters: function(modalClass) {
+
 			//Use flex box to contain battle images
 
 			// Player Fighter Generation
@@ -209,52 +227,97 @@ $(document).ready(function() {
 			EnemyFighterHPDiv.append(EnemyFighterHPp);
 			EnemyFighterDiv.append(EnemyFighterHPDiv);
 
-			//Use a drop down modal box to carry out the battle scene
+			$(modalClass).append(PlayerFighterDiv);
 
-			$(".modal-title").html(vsTitle)
+			$(modalClass).append(EnemyFighterDiv);
 
-			$(".battleground").append(PlayerFighterDiv);
+		}, // end createFighters 
 
-			$(".battleground").append(EnemyFighterDiv);
+		gameoverSeq: function() {
 
-			$('#battleModal').modal({
+			this.GameOver = true;
+
+			//Setup Main screen Game Over
+			//create buttons for user to restart current game or start a new game
+			var gameoverButtonsDiv = $("<div>").addClass("btn-group")
+			var restartButton = $("<button>").attr("type", "button").addClass("btn btn-lg btn-gameover btn-restart").text("Restart");
+			var newgameButton = $("<button>").attr("type", "button").addClass("btn btn-lg btn-gameover btn-newgame").text("New Game");
+			var gameoverMessage = "<h3>Your player has been defeated!<br><br>" +
+				"Press the Restart button to play this game again.<br>Press the New Game button to start a new game.</h3><br><br>";
+
+			gameoverButtonsDiv.append(restartButton).append(newgameButton);
+
+			$(".main-messages").html(gameoverMessage);
+			$(".main-messages").append(gameoverButtonsDiv)
+
+			//Game Over Modal
+			var gameoverTitle = this.selPlayer.name + " vs. " + this.selEnemy.name;
+			var gameoverHTML = "<p class = \"gameoverFlash text-center\">Game Over!</p><br>"
+			var gameoverModalMsg = this.selPlayer.name + " has been defeated by " + this.selEnemy.name;
+
+			var gameoverClass = ".gameover"
+
+			$(".gameover").empty();
+			$(".gameover-messages").empty();
+
+			$(".gameover-title").html(gameoverTitle);
+
+			$(".gameover-messages").html(gameoverHTML).append(gameoverModalMsg)
+
+			this.createFighters(gameoverClass);
+
+			$('#GameOverModal').modal({
 				backdrop: "static",
 				keyboard: false})
+
+		},
+
+		resetGame: function() {
+
+			$(".main-messages").empty();
+			$(".chooseplyr").empty();
+			$(".chooseopphdr").empty();
+			$(".battleground-messages").empty()
+			$(".gameover-messages").empty()			
+
 		}
 
 	}; // end starwars game object
 
 
-starwars.initial()
+starwars.initial()  //This executes the start of the game
+
+
 
 $(".player").on("click", function() {
 		//When a player is picked, move him to the left most position
 		//Move the other players (siblings) to the Opponents area
-		var playerChosen = ($(this).data("player-chosen"));
-		var vsChosen = ($(this).data("vs-chosen"));
-		var chosenPlayerId = ($(this).data("player-id"));
-		var defeatedOpp = ($(this).data("defeated"));
 
-		if (playerChosen === "no") {
-			$(".chooseopphdr").append("<h1>Choose Your Opponent</h1>");
-			starwars.selPlayer = starwars.selChars[chosenPlayerId];
-			starwars.selPlayerIndex = chosenPlayerId;
-			var leftpx = 0;
-			var siblings = $(this).siblings();
-			$(siblings).each(function() {
-				$(this).animate({ top: "+=360px" }, "normal");
-				$(this).animate({ left: leftpx }, "normal");
-				leftpx += 210;
-			});
+		if (!(starwars.GameOver)) {
 
-	        $(this).animate({ left: "0px" }, "normal");
+			var playerChosen = ($(this).data("player-chosen"));
+			var vsChosen = ($(this).data("vs-chosen"));
+			var chosenPlayerId = ($(this).data("player-id"));
+			var defeatedOpp = ($(this).data("defeated"));
 
-	        $(".player").data("player-chosen", "yes");
+			if (playerChosen === "no") {
+				$(".chooseopphdr").append("<h1>Choose Your Opponent</h1>");
+				starwars.selPlayer = starwars.selChars[chosenPlayerId];
+				starwars.selPlayerIndex = chosenPlayerId;
+				var leftpx = 0;
+				var siblings = $(this).siblings();
+				$(siblings).each(function() {
+					$(this).animate({ top: "+=360px" }, "normal");
+					$(this).animate({ left: leftpx }, "normal");
+					leftpx += 210;
+				});
 
-	    } //end if
-    	// else if (vsChosen === "no") {
-    	else if (!(defeatedOpp)) {
-    		if (!(starwars.selPlayer === starwars.selChars[chosenPlayerId])) {
+		        $(this).animate({ left: "0px" }, "normal");
+
+		        $(".player").data("player-chosen", "yes");
+
+		    } //end if
+	    	else if (!(defeatedOpp) && (!(starwars.selPlayer === starwars.selChars[chosenPlayerId]))) {
     			starwars.selEnemy = starwars.selChars[chosenPlayerId];
     			starwars.selEnemyIndex = chosenPlayerId;
 
@@ -263,14 +326,8 @@ $(".player").on("click", function() {
     			starwars.createBattlefield()
     			// alert("start battle: " + starwars.selPlayer.name + " vs. " + starwars.selEnemy.name);
 
-    		}
-    	}
-
-	    // console.log($(".player1").data("player-chosen"));
-	    // console.log($(".player2").data("player-chosen"));
-	    // console.log($(".player3").data("player-chosen"));
-	    // console.log($(".player4").data("player-chosen"));
-
+	    		} //end else if
+	    	} //end if not gameover
 
       }); // close player.onclick
 
@@ -283,31 +340,46 @@ $(".btn-attack").on("click", function() {
 	// Check to see if Player has been defeated
 
 	starwars.selEnemy.hp -= starwars.selPlayer.ap
+
 	
-
-	$("div.enemyfighter").children("div.hp").html("<p>HP: " + starwars.selEnemy.hp + "</p>");
-	//update Player cards
-
 	if (starwars.selEnemy.hp > 0) {
-		starwars.selPlayer.hp -= starwars.selEnemy.ap
+		//update Enemy card
+		$("div.enemyfighter").children("div.hp").html("<p>HP: " + starwars.selEnemy.hp + "</p>");
+		//alert Player of results
+		$("div.battleground-messages").html("<p class = \"battleground-message\">" + starwars.selPlayer.name + " Attacked " + 
+			starwars.selEnemy.name + " and caused " + starwars.selPlayer.ap + " points of damage!")
+		// icrease attack power for next attack
+		starwars.selPlayer.ap += starwars.selPlayer.api
+		//counter-attack
+		starwars.selPlayer.hp -= starwars.selEnemy.cap
+		//alert Player of results
+		$("div.battleground-messages").append("<p class = \"battleground-message\">" + starwars.selEnemy.name + " Counter Attacked " + 
+			starwars.selPlayer.name + " and caused " + starwars.selEnemy.cap + " points of damage!")
+
+		if (starwars.selPlayer.hp <= 0) {
+			starwars.selPlayer.hp = 0;
+			// process player loss
+			// update cards and close window via retreat button click
+			$(".btn-retreat").trigger("click");
+			// open new window with player loss and game over message
+			starwars.gameoverSeq();
+
+			//Game Over
+		}
+
 		$("div.playerfighter").children("div.hp").html("<p>HP: " + starwars.selPlayer.hp + "</p>");
 	}
 	else {
-		$(".btn-retreat").trigger("click");
+		starwars.selEnemy.hp = 0;
+		// icrease attack power for next attack
+		starwars.selPlayer.ap += starwars.selPlayer.api
+		//update Enemy card
+		$("div.enemyfighter").children("div.hp").html("<p>HP: " + starwars.selEnemy.hp + "</p>");
+		//update cards and close window via retreat button click
 		//Mark Enemy as being defeated in the opponent area
 		//close modal and allow player to select a new opponent
+		$(".btn-retreat").trigger("click");
 	}
-
-if (starwars.selPlayer.hp > 0) {
-		starwars.selPlayer.ap += starwars.selPlayer.api
-	}
-	else {
-		//Player is defeated 
-		//Game Over
-	}	
-
-
-
 
 }); // close btn-attack.onclick
 
@@ -336,10 +408,35 @@ $(".btn-retreat").on("click", function() {
 		$(selEnemyTag).append(EnemyDefDiv);
 	}
 
+		if (starwars.selPlayer.hp <= 0) {
+		$(selPlayerTag).data("defeated", true);
+		var PlayerDefDiv = $("<div>").addClass("text-center flex-defeated").html("<p class=\"defeated\">DEFEATED</p>");
+
+		$(selPlayerTag).append(PlayerDefDiv);
+	}
+
 
 
 }); // close btn-attack.onclick
 
+$(document).on("click", ".btn-restart", function() {
+
+	srtarwars.resetGame()
+	starwars.writeChosenCharacters();
+	starwars.GameOver = false;
+
+
+}); // close btn-restart.onclick
+
+$(document).on("click", ".btn-newgame", function() {
+
+	srtarwars.resetGame()
+	starwars.chooseCharacters();
+	starwars.writeChosenCharacters();
+	starwars.GameOver = false;
+
+
+}); // close btn-newgame.onclick
 
 
 }); // close of document.ready 
