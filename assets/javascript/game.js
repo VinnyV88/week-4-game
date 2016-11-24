@@ -90,10 +90,10 @@ $(document).ready(function() {
 			this.GameOver = false;
 		},
 
-		chooseCharacters: function() {
-			this.charsShuffled = shuffleArray(this.Characters);
-			this.attribsShuffled = shuffleArray(this.charAttribs);
+		initSelChars: function() {
 
+			this.selChars = [];
+			
 			for (var i = 0; i < 4; i++) {
 
 				this.charsShuffled[i].hp = this.attribsShuffled[i].health;
@@ -103,6 +103,14 @@ $(document).ready(function() {
 
 				this.selChars.push(this.charsShuffled[i]);
 			};
+
+		},
+
+		chooseCharacters: function() {
+			this.charsShuffled = shuffleArray(this.Characters);
+			this.attribsShuffled = shuffleArray(this.charAttribs);
+
+			this.initSelChars();
 		},
 
 		writeChosenCharacters: function() {
@@ -278,7 +286,10 @@ $(document).ready(function() {
 			$(".chooseplyr").empty();
 			$(".chooseopphdr").empty();
 			$(".battleground-messages").empty()
-			$(".gameover-messages").empty()			
+			$(".gameover-messages").empty()	
+
+			this.initSelChars();
+			this.GameOver = false;		
 
 		}
 
@@ -289,7 +300,7 @@ starwars.initial()  //This executes the start of the game
 
 
 
-$(".player").on("click", function() {
+$(document).on("click", ".player", function() {
 		//When a player is picked, move him to the left most position
 		//Move the other players (siblings) to the Opponents area
 
@@ -421,19 +432,17 @@ $(".btn-retreat").on("click", function() {
 
 $(document).on("click", ".btn-restart", function() {
 
-	srtarwars.resetGame()
+	starwars.resetGame()
 	starwars.writeChosenCharacters();
-	starwars.GameOver = false;
 
 
 }); // close btn-restart.onclick
 
 $(document).on("click", ".btn-newgame", function() {
 
-	srtarwars.resetGame()
+	starwars.resetGame()
 	starwars.chooseCharacters();
 	starwars.writeChosenCharacters();
-	starwars.GameOver = false;
 
 
 }); // close btn-newgame.onclick
