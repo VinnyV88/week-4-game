@@ -22,10 +22,10 @@
 
 $(document).ready(function() {
 
-		/**
+	/**
 	 * Randomize array element order in-place.
 	 * Using Durstenfeld shuffle algorithm.
-	 */
+	 **/
 	function shuffleArray(array) {
 	    for (var i = array.length - 1; i > 0; i--) {
 	        var j = Math.floor(Math.random() * (i + 1));
@@ -37,10 +37,10 @@ $(document).ready(function() {
 	};
 
 	var starwars = {
-		charAttribs: [char1 = {health: 120, attack: 8, attackinc: 8, counteratt: 15},
-					  char2 = {health: 100, attack: 10, attackinc: 10, counteratt: 5},
-					  char3 = {health: 150, attack: 6, attackinc: 6, counteratt: 20},
-					  char4 = {health: 180, attack: 4, attackinc: 4, counteratt: 25}
+		charAttribs: [char1 = {health: 120, attack: 8, attackinc: 8, counteratt: 5},
+					  char2 = {health: 100, attack: 10, attackinc: 10, counteratt: 10},
+					  char3 = {health: 150, attack: 6, attackinc: 6, counteratt: 25},
+					  char4 = {health: 180, attack: 4, attackinc: 4, counteratt: 15}
 					 ],
 		Characters: [obiwan = {name: "Obi-Wan Kenobi", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
 					imgrdy: "Old Obi Wan.png", imgfightp: "Old Obi Wan.png", imgfighte: "Old Obi WanE.png", imgwin: "", imglose: ""},
@@ -80,6 +80,7 @@ $(document).ready(function() {
 		selPlayerIndex: 0,
 		selEnemy: {},
 		selEnemyIndex: 0,
+		Wins: 0,
 		GameOver: false,
 
 		initial: function() {
@@ -87,13 +88,15 @@ $(document).ready(function() {
 			$(".gameover-messages").empty()
 			this.chooseCharacters();
 			this.writeChosenCharacters();
+			this.wins = 0;
 			this.GameOver = false;
 		},
 
 		initSelChars: function() {
 
+			//empty out the selChars array. new characters will be pushed below.
 			this.selChars = [];
-			
+
 			for (var i = 0; i < 4; i++) {
 
 				this.charsShuffled[i].hp = this.attribsShuffled[i].health;
@@ -241,7 +244,7 @@ $(document).ready(function() {
 
 		}, // end createFighters 
 
-		gameoverSeq: function() {
+		gameoverSeq: function(results) {
 
 			this.GameOver = true;
 
@@ -250,8 +253,18 @@ $(document).ready(function() {
 			var gameoverButtonsDiv = $("<div>").addClass("btn-group")
 			var restartButton = $("<button>").attr("type", "button").addClass("btn btn-lg btn-gameover btn-restart").text("Restart");
 			var newgameButton = $("<button>").attr("type", "button").addClass("btn btn-lg btn-gameover btn-newgame").text("New Game");
-			var gameoverMessage = "<h3>Your player has been defeated!<br><br>" +
+
+			if (results === "loss") {
+			var gameoverMessage = "<h3>" + this.selPlayer.name + " has been defeated!<br><br>" +
 				"Press the Restart button to play this game again.<br>Press the New Game button to start a new game.</h3><br><br>";
+				var gameoverHTML = "<p class = \"gameoverFlash text-center\">Game Over!</p><br>"
+				var gameoverModalMsg = this.selPlayer.name + " has been defeated by " + this.selEnemy.name;
+			} else { // results = win
+				var gameoverMessage = "<h3>" + this.selPlayer.name + " has defeated all opponents!<br><br>" +
+				"Press the Restart button to play this game again with a different character.<br>Press the New Game button to start a new game.</h3><br><br>";
+				var gameoverHTML = "<p class = \"gameoverFlash text-center\">You Won!</p><br>"
+				var gameoverModalMsg = this.selPlayer.name + " has defeated all opponents!";
+			}
 
 			gameoverButtonsDiv.append(restartButton).append(newgameButton);
 
@@ -260,8 +273,6 @@ $(document).ready(function() {
 
 			//Game Over Modal
 			var gameoverTitle = this.selPlayer.name + " vs. " + this.selEnemy.name;
-			var gameoverHTML = "<p class = \"gameoverFlash text-center\">Game Over!</p><br>"
-			var gameoverModalMsg = this.selPlayer.name + " has been defeated by " + this.selEnemy.name;
 
 			var gameoverClass = ".gameover"
 
@@ -276,7 +287,7 @@ $(document).ready(function() {
 
 			$('#GameOverModal').modal({
 				backdrop: "static",
-				keyboard: false})
+				keyboard: true})
 
 		},
 
@@ -289,6 +300,7 @@ $(document).ready(function() {
 			$(".gameover-messages").empty()	
 
 			this.initSelChars();
+			this.wins = 0;
 			this.GameOver = false;		
 
 		}
@@ -334,7 +346,7 @@ $(document).on("click", ".player", function() {
 
     			$(".player").data("vs-chosen", "yes");
 
-    			starwars.createBattlefield()
+    			starwars.createBattlefield();
     			// alert("start battle: " + starwars.selPlayer.name + " vs. " + starwars.selEnemy.name);
 
 	    		} //end else if
@@ -373,7 +385,7 @@ $(".btn-attack").on("click", function() {
 			// update cards and close window via retreat button click
 			$(".btn-retreat").trigger("click");
 			// open new window with player loss and game over message
-			starwars.gameoverSeq();
+			starwars.gameoverSeq("loss");
 
 			//Game Over
 		}
@@ -383,14 +395,20 @@ $(".btn-attack").on("click", function() {
 	else {
 		starwars.selEnemy.hp = 0;
 		// icrease attack power for next attack
-		starwars.selPlayer.ap += starwars.selPlayer.api
+		starwars.selPlayer.ap += starwars.selPlayer.api;
 		//update Enemy card
 		$("div.enemyfighter").children("div.hp").html("<p>HP: " + starwars.selEnemy.hp + "</p>");
 		//update cards and close window via retreat button click
 		//Mark Enemy as being defeated in the opponent area
 		//close modal and allow player to select a new opponent
 		$(".btn-retreat").trigger("click");
-	}
+		//Check to see if Player has won the game
+		starwars.wins += 1;
+		if (starwars.wins === 3) {
+			//Player has won the game, initiate game over win sequence
+			starwars.gameoverSeq("win");
+		};
+	};
 
 }); // close btn-attack.onclick
 
@@ -400,14 +418,14 @@ $(".btn-retreat").on("click", function() {
 	// Update Player and Enemy cards with current values
 	// close modal and allow player to select a new opponent
 
-	starwars.selChars[starwars.selPlayerIndex].hp = starwars.selPlayer.hp
-	starwars.selChars[starwars.selPlayerIndex].ap = starwars.selPlayer.ap
+	starwars.selChars[starwars.selPlayerIndex].hp = starwars.selPlayer.hp;
+	starwars.selChars[starwars.selPlayerIndex].ap = starwars.selPlayer.ap;
 
-	starwars.selChars[starwars.selEnemyIndex].hp = starwars.selEnemy.hp
+	starwars.selChars[starwars.selEnemyIndex].hp = starwars.selEnemy.hp;
 
 	//Update Main Page cards
-	var selPlayerTag = "div.player" + starwars.selPlayerIndex
-	var selEnemyTag = "div.player" + starwars.selEnemyIndex
+	var selPlayerTag = "div.player" + starwars.selPlayerIndex;
+	var selEnemyTag = "div.player" + starwars.selEnemyIndex;
 
 	$(selPlayerTag).children("div.hp").html("<p>HP: " + starwars.selPlayer.hp + "</p>");
 	$(selEnemyTag).children("div.hp").html("<p>HP: " + starwars.selEnemy.hp + "</p>");
@@ -417,14 +435,14 @@ $(".btn-retreat").on("click", function() {
 		var EnemyDefDiv = $("<div>").addClass("text-center flex-defeated").html("<p class=\"defeated\">DEFEATED</p>");
 
 		$(selEnemyTag).append(EnemyDefDiv);
-	}
+	};
 
 		if (starwars.selPlayer.hp <= 0) {
 		$(selPlayerTag).data("defeated", true);
 		var PlayerDefDiv = $("<div>").addClass("text-center flex-defeated").html("<p class=\"defeated\">DEFEATED</p>");
 
 		$(selPlayerTag).append(PlayerDefDiv);
-	}
+	};
 
 
 
@@ -432,7 +450,7 @@ $(".btn-retreat").on("click", function() {
 
 $(document).on("click", ".btn-restart", function() {
 
-	starwars.resetGame()
+	starwars.resetGame();
 	starwars.writeChosenCharacters();
 
 
@@ -440,7 +458,7 @@ $(document).on("click", ".btn-restart", function() {
 
 $(document).on("click", ".btn-newgame", function() {
 
-	starwars.resetGame()
+	starwars.resetGame();
 	starwars.chooseCharacters();
 	starwars.writeChosenCharacters();
 

@@ -21,6 +21,7 @@ video {width:100%; height:100%; position:fixed; top:0px; left:0px; z-index:-1000
 .h1, h1 {
 	font-size: 40px;
 	text-shadow: 0 2px 0 #1d5510;
+	margin-top: 0px;
 	/*text-decoration: underline;*/
 }
 
@@ -108,9 +109,15 @@ body {
     display: center;
     width: 200px;
     height: 300px;
-    background-color: white;
     margin-right: 10px;
     float: left;
+	background: -moz-linear-gradient(0deg, #c0c0c0 0%, #ffffff 50%, #808080 100%); /* ff3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%, #c0c0c0), color-stop(50%, #ffffff), color-stop(100%, #808080)); /* safari4+,chrome */
+	background: -webkit-linear-gradient(0deg, #c0c0c0 0%, #ffffff 50%, #808080 100%); /* safari5.1+,chrome10+ */
+	background: -o-linear-gradient(0deg, #c0c0c0 0%, #ffffff 50%, #808080 100%); /* opera 11.10+ */
+	background: -ms-linear-gradient(0deg, #c0c0c0 0%, #ffffff 50%, #808080 100%); /* ie10+ */
+	background: linear-gradient(90deg, #c0c0c0 0%, #ffffff 50%, #808080 100%); /* w3c */ 
+
 }
 
 .flex-defeated {
@@ -177,25 +184,25 @@ body {
 
 .player0 {
 	position: absolute;
-	top: 70px;
+	top: 50px;
 	left: 0px;
 }
 
 .player1 {
 	position: absolute;
-	top: 70px;
+	top: 50px;
 	left: 210px;
 }
 
 .player2 {
 	position: absolute;
-	top: 70px;
+	top: 50px;
 	left: 420px;
 }
 
 .player3 {
 	position: absolute;
-	top: 70px;
+	top: 50px;
 	left: 630px;
 }
 
@@ -229,8 +236,12 @@ body {
 }
 
 .modal-content {
-	/*background-image: url("../images/starburst.jpg"); */
-	background-color: transparent;
+    background: -moz-linear-gradient(0deg, #c0c0c0 0%, #ffffff 50%, #808080 100%); /* ff3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%, #c0c0c0), color-stop(50%, #ffffff), color-stop(100%, #808080)); /* safari4+,chrome */
+	background: -webkit-linear-gradient(0deg, #c0c0c0 0%, #ffffff 50%, #808080 100%); /* safari5.1+,chrome10+ */
+	background: -o-linear-gradient(0deg, #c0c0c0 0%, #ffffff 50%, #808080 100%); /* opera 11.10+ */
+	background: -ms-linear-gradient(0deg, #c0c0c0 0%, #ffffff 50%, #808080 100%); /* ie10+ */
+	background: linear-gradient(90deg, #c0c0c0 0%, #ffffff 50%, #808080 100%); /* w3c */ 
 }
 
 .battleground-body {
