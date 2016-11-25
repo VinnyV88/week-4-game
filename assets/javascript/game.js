@@ -82,6 +82,8 @@ $(document).ready(function() {
 		selEnemyIndex: 0,
 		Wins: 0,
 		GameOver: false,
+		bgindex: 0,
+		mdbgindex: 0,
 
 		initial: function() {
 			$(".battleground-messages").empty()
@@ -262,11 +264,21 @@ $(document).ready(function() {
 				"Press the Restart button to play this game again.<br>Press the New Game button to start a new game.</h3><br><br>";
 				var gameoverHTML = "<p class = \"gameoverFlash text-center\">Game Over!</p><br>"
 				var gameoverModalMsg = this.selPlayer.name + " has been defeated by " + this.selEnemy.name;
+
+				var PlayerDefDiv = $("<div>").addClass("text-center").html("<p class=\"defeated\">DEFEATED</p>");
+
+				$(".playerfighter").append(PlayerDefDiv);
+
 			} else { // results = win
 				var gameoverMessage = "<h3>" + this.selPlayer.name + " has defeated all opponents!<br><br>" +
 				"Press the Restart button to play this game again with a different character.<br>Press the New Game button to start a new game.</h3><br><br>";
 				var gameoverHTML = "<p class = \"gameoverFlash text-center\">You Won!</p><br>"
 				var gameoverModalMsg = this.selPlayer.name + " has defeated all opponents!";
+
+				var EnemyDefDiv = $("<div>").addClass("text-center").html("<p class=\"defeated\">DEFEATED</p>");
+
+				$(".enemyfighter").append(EnemyDefDiv);
+
 			}
 
 			gameoverButtonsDiv.append(restartButton).append(newgameButton);
@@ -276,13 +288,19 @@ $(document).ready(function() {
 
 			//Game Over Modal
 			$(".battleground-messages").empty();
-			$(".modal-btn-group").empty();
 
 			$(".battleground-messages").html(gameoverHTML).append(gameoverModalMsg);
 
+			this.modalBtnClose();
+		},
+
+		modalBtnClose: function() {
+
+			$(".modal-btn-group").empty();
+
 			var closeButton = $("<button>").attr("type", "button").attr("data-dismiss", "modal").addClass("btn btn-lg").text("Close");
 
-			$(".modal-btn-group").append(closeButton)
+			$(".modal-btn-group").append(closeButton);
 
 		},
 
@@ -318,14 +336,65 @@ $(document).ready(function() {
 
 		},
 
+		enemyDefeated: function() {
+			
+			$("div.battleground-messages").html("<p class = \"battleground-message\">" + starwars.selPlayer.name + " Attacked " + 
+			starwars.selEnemy.name + " and caused " + starwars.selPlayer.ap + " points of damage!")
+
+			$("div.battleground-messages").append("<p class = \"battleground-message\">" + starwars.selPlayer.name + " DEFEATED " + 
+			starwars.selEnemy.name + "!")
+
+
+			var EnemyDefDiv = $("<div>").addClass("text-center").html("<p class=\"defeated\">DEFEATED</p>");
+
+			$(".enemyfighter").append(EnemyDefDiv);
+
+			this.updatePlayerCards();
+			this.modalBtnClose();
+
+		},
+
+		changeBackground: function (){
+    		var imgs = [
+            	"assets/images/backdrop03.jpg",
+            	"assets/images/backdrop05.jpg",
+            	"assets/images/backdrop10.jpg"
+        		];
+
+        	this.bgindex +=1
+        	if (this.bgindex >= imgs.length) {
+        		this.bgindex = 0;
+        	};
+
+    	   	$("body").css("background", "url("+imgs[this.bgindex]+")");
+    	},
+
+		changeModalBackground: function (){
+    		var imgs = [
+            	"assets/images/backdrop08.jpg",
+            	"assets/images/backdrop01.jpg",
+            	"assets/images/backdrop02.jpg",
+            	"assets/images/backdrop07.jpg",
+            	"assets/images/backdrop09.jpg"
+        		];
+
+        	this.mdbgindex +=1
+        	if (this.mdbgindex >= imgs.length) {
+        		this.mdbgindex = 0;
+        	};
+
+    	   	$(".battleground-body").css("background", "url("+imgs[this.mdbgindex]+")");
+    	},
 		resetGame: function() {
 
 			$(".main-messages").empty();
 			$(".chooseplyr").empty();
 			$(".chooseopphdr").empty();
-			$(".battleground-messages").empty()
-			$(".gameover-messages").empty()	
+			$(".battleground-messages").empty();
+			$(".gameover-messages").empty();
 
+			this.changeBackground();
+			this.changeModalBackground();
 			this.initSelChars();
 			this.wins = 0;
 			this.GameOver = false;		
@@ -408,9 +477,6 @@ $(document).on("click", ".btn-attack", function() {
 		if (starwars.selPlayer.hp <= 0) {
 			starwars.selPlayer.hp = 0;
 			// process player loss
-			// update cards 
-			starwars.updatePlayerCards();
-			// refresh modal with player loss and game over message
 			starwars.gameoverSeq("loss");
 
 			//Game Over
@@ -431,9 +497,9 @@ $(document).on("click", ".btn-attack", function() {
 		if (starwars.wins === 3) {
 			//Player has won the game, initiate game over win sequence
 			starwars.gameoverSeq("win");
-		} else {
-			//close modal and allow player to select a new opponent
-			$(".btn-retreat").trigger("click");
+		} else { // Player has defeated opponent
+			//show close button will allow player to select a new opponent
+			starwars.enemyDefeated();
 		};
 	};
 

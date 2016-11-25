@@ -92,32 +92,6 @@ body {
 
 }
 
-.modal.fade .modal-dialog {
-    -webkit-transition: -webkit-transform .3s ease-out;
-    -o-transition: -o-transform .3s ease-out;
-    transition: transform 300ms ease-out 0ms;
-    transition-property: transform;
-    transition-duration: .5s;
-    transition-timing-function: ease-out;
-    transition-delay: 0ms;
-/*    -webkit-transform: translate(0,-25%);
-    -ms-transform: translate(0,-25%);
-    -o-transform: translate(0,-25%);
-    transform: translate(0,-25%);
-*/
-}
-
-.fade {
-    opacity: 0;
-    -webkit-transition: opacity .5s linear;
-    -o-transition: opacity .5s linear;
-    transition: opacity .5s linear 0ms;
-    transition-property: opacity;
-    transition-duration: .5s;
-    transition-timing-function: linear;
-    transition-delay: 0ms;
-}
-
 .main-messages {
 	position: absolute;
 	top: 80px;
@@ -281,10 +255,6 @@ body {
 	min-height: 575px;
 }
 
-.gameover-body {
-	background-image: url("../images/backdrop08.jpg"); /*backdrops 01, 02, 07, 08, 09 are good for modals*/
-	min-height: 575px;
-}
 
 .btn-lg {
 	background: #525E6E;
