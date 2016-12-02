@@ -1,0 +1,239 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-bobba_attack {
+    width: 960px;
+    height: 100px;
+    background-position: 0 0;
+}
+
+.sprite-bobba_dead {
+    width: 360px;
+    height: 100px;
+    background-position: 0 -100px;
+}
+
+.sprite-bobba_ready {
+    width: 360px;
+    height: 100px;
+    background-position: 0 -200px;
+}
+
+.sprite-chewy_attack {
+    width: 1200px;
+    height: 100px;
+    background-position: 0 -300px;
+}
+
+.sprite-chewy_dead {
+    width: 360px;
+    height: 100px;
+    background-position: 0 -400px;
+}
+
+.sprite-chewy_ready {
+    width: 480px;
+    height: 100px;
+    background-position: 0 -500px;
+}
+
+.sprite-emperor_attack {
+    width: 1080px;
+    height: 100px;
+    background-position: 0 -600px;
+}
+
+.sprite-emperor_dead {
+    width: 360px;
+    height: 100px;
+    background-position: 0 -700px;
+}
+
+.sprite-emperor_ready {
+    width: 480px;
+    height: 100px;
+    background-position: 0 -800px;
+}
+
+.sprite-ewok_attack {
+    width: 720px;
+    height: 100px;
+    background-position: 0 -900px;
+}
+
+.sprite-ewok_dead {
+    width: 360px;
+    height: 100px;
+    background-position: 0 -1000px;
+}
+
+.sprite-ewok_ready {
+    width: 1200px;
+    height: 100px;
+    background-position: 0 -1100px;
+}
+
+.sprite-hansolo_attack {
+    width: 1680px;
+    height: 100px;
+    background-position: 0 -1200px;
+}
+
+.sprite-hansolo_dead {
+    width: 360px;
+    height: 100px;
+    background-position: 0 -1300px;
+}
+
+.sprite-hansolo_ready {
+    width: 840px;
+    height: 100px;
+    background-position: 0 -1400px;
+}
+
+.sprite-jabba_attack {
+    width: 960px;
+    height: 100px;
+    background-position: 0 -1500px;
+}
+
+.sprite-jabba_dead {
+    width: 360px;
+    height: 100px;
+    background-position: 0 -1600px;
+}
+
+.sprite-jabba_ready {
+    width: 960px;
+    height: 100px;
+    background-position: 0 -1700px;
+}
+
+.sprite-leia_attack {
+    width: 1440px;
+    height: 100px;
+    background-position: 0 -1800px;
+}
+
+.sprite-leia_dead {
+    width: 360px;
+    height: 100px;
+    background-position: 0 -1900px;
+}
+
+.sprite-leia_ready {
+    width: 480px;
+    height: 100px;
+    background-position: 0 -2000px;
+}
+
+.sprite-luke_attack {
+    width: 1200px;
+    height: 100px;
+    background-position: 0 -2100px;
+}
+
+.sprite-luke_dead {
+    width: 480px;
+    height: 100px;
+    background-position: 0 -2200px;
+}
+
+.sprite-luke_ready {
+    width: 840px;
+    height: 100px;
+    background-position: 0 -2300px;
+}
+
+.sprite-obiwan_attack {
+    width: 1320px;
+    height: 100px;
+    background-position: 0 -2400px;
+}
+
+.sprite-obiwan_dead {
+    width: 720px;
+    height: 100px;
+    background-position: 0 -2500px;
+}
+
+.sprite-obiwan_ready {
+    width: 600px;
+    height: 100px;
+    background-position: 0 -2600px;
+}
+
+.sprite-r2d2_attack {
+    width: 720px;
+    height: 100px;
+    background-position: 0 -2700px;
+}
+
+.sprite-r2d2_dead {
+    width: 1320px;
+    height: 100px;
+    background-position: 0 -2800px;
+}
+
+.sprite-r2d2_ready {
+    width: 1320px;
+    height: 100px;
+    background-position: 0 -2900px;
+}
+
+.sprite-storm_attack {
+    width: 720px;
+    height: 100px;
+    background-position: 0 -3000px;
+}
+
+.sprite-storm_dead {
+    width: 360px;
+    height: 100px;
+    background-position: 0 -3100px;
+}
+
+.sprite-storm_ready {
+    width: 360px;
+    height: 100px;
+    background-position: 0 -3200px;
+}
+
+.sprite-vader_attack {
+    width: 1440px;
+    height: 100px;
+    background-position: 0 -3300px;
+}
+
+.sprite-vader_dead {
+    width: 720px;
+    height: 100px;
+    background-position: 0 -3400px;
+}
+
+.sprite-vader_ready {
+    width: 840px;
+    height: 100px;
+    background-position: 0 -3500px;
+}
+
+.sprite-yoda_attack {
+    width: 2040px;
+    height: 100px;
+    background-position: 0 -3600px;
+}
+
+.sprite-yoda_dead {
+    width: 360px;
+    height: 100px;
+    background-position: 0 -3700px;
+}
+
+.sprite-yoda_ready {
+    width: 600px;
+    height: 100px;
+    background-position: 0 -3800px;
+}

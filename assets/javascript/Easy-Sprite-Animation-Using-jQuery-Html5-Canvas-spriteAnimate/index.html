@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery spriteAnimate Plugin Demo</title>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+<style>
+body { background-color:#333;}
+.container { text-align:center; margin:150px auto;}
+</style>
+</head>
+
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/animation/Easy-Sprite-Animation-Using-jQuery-Html5-Canvas-spriteAnimate.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<div class="container">
+<h1 style="color:#fff; text-align:center;">jQuery spriteAnimate Plugin Demo</h1>
+<canvas style="width: 150; height: 158; margin:30px auto; display:block"></canvas>
+<button class="btn btn-primary" id="play">Play</button>
+<button class="btn btn-primary" id="stop">Stop</button>
+<button class="btn btn-primary" id="goto">Goto Frame 3</button>
+<button class="btn btn-primary" id="restart">Restart</button>
+</div>
+<script src="http://code.jquery.com/jquery-3.1.0.slim.min.js"></script>
+<script src="sprite-animate.js"></script>
+<script>
+$(function(){
+  var $canvas = $('canvas');
+  // init sprite animation
+    $canvas.spriteAnimate({
+        frameWidth: 150,
+        frameHeight: 150,
+        numberOfFrames: 4,
+        imgSrc: "demo.png",
+        fps: 15,
+        loop: true,
+        debug: false,
+        onFinish: function(){}
+  });
+$( "#play" ).click(function() {
+  $canvas.spriteAnimate('play');
+});
+$( "#stop" ).click(function() {
+  $canvas.spriteAnimate('pause');
+});
+$( "#goto" ).click(function() {
+  $canvas.spriteAnimate('goTo', 3);
+});
+$( "#restart" ).click(function() {
+  $canvas.spriteAnimate('restart');
+});
+});
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

@@ -37,41 +37,115 @@ $(document).ready(function() {
 	};
 
 	var starwars = {
-		charAttribs: [char1 = {health: 120, attack: 8, attackinc: 8, counteratt: 5},
-					  char2 = {health: 100, attack: 10, attackinc: 10, counteratt: 10},
-					  char3 = {health: 150, attack: 6, attackinc: 6, counteratt: 25},
-					  char4 = {health: 180, attack: 4, attackinc: 4, counteratt: 15}
+		// charAttribs: [char1 = {health: 120, attack: 12, attackinc: 12, counteratt: 5},
+		// 			  char2 = {health: 100, attack: 10, attackinc: 10, counteratt: 20},
+		// 			  char3 = {health: 150, attack: 6, attackinc: 6, counteratt: 25},
+		// 			  char4 = {health: 180, attack: 4, attackinc: 4, counteratt: 15}
+		// 			 ],
+
+		// charAttribs: [char1 = {health: 275, attack: 14, attackinc: 14, counteratt: 39},
+		// 			  char2 = {health: 245, attack: 11, attackinc: 11, counteratt: 35},
+		// 			  char3 = {health: 315, attack: 8, attackinc: 8, counteratt: 30},
+		// 			  char4 = {health: 360, attack: 9, attackinc: 9, counteratt: 20}
+		// 			 ],
+
+		charAttribs: [char1 = {health: 500, attack: 20, attackinc: 20, counteratt: 50},
+					  char2 = {health: 430, attack: 16, attackinc: 16, counteratt: 43},
+					  char3 = {health: 540, attack: 13, attackinc: 13, counteratt: 39},
+					  char4 = {health: 570, attack: 15, attackinc: 15, counteratt: 25}
 					 ],
+
 		Characters: [obiwan = {name: "Obi-Wan Kenobi", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Old Obi Wan.png", imgfightp: "Old Obi Wan.png", imgfighte: "Old Obi WanE.png", imgwin: "", imglose: ""},
+					imgrdy: "Old Obi Wan.png", imgfightp: "Old Obi Wan.png", imgfighte: "Old Obi WanE.png", imgwin: "", imglose: "",
+					readySound: "More powerful.mp3", attackSound: "ls_hit2.mp3", deadSound: "The Force will be with you.mp3",
+					readySprite: {imgName: "obiwan_ready.png", numFrames: 5}, attackSprite: {imgName: "obiwan_attack.png", numFrames: 11},
+					deadSprite: {imgName: "obiwan_dead.png", numFrames: 6}, readySpriteE: {imgName: "obiwan_ready01E.png", numFrames: 5}, 
+					attackSpriteE: {imgName: "obiwan_attack01E.png", numFrames: 11}, deadSpriteE: {imgName: "obiwan_dead01E.png", numFrames: 6} 
+					},
 					luke = {name: "Luke Skywalker", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Luke Skywalker 03.png", imgfightp: "Luke Skywalker 01.png", imgfighte: "Luke Skywalker 01E.png", imgwin: "", imglose: ""},
+					imgrdy: "Luke Skywalker 03.png", imgfightp: "Luke Skywalker 01.png", imgfighte: "Luke Skywalker 01E.png", imgwin: "", imglose: "",
+					readySound: "ls_powerup2.mp3", attackSound: "ls_hit4.mp3", deadSound: "luke_noooo.mp3",
+					readySprite: {imgName: "luke_ready.png", numFrames: 7}, attackSprite: {imgName: "luke_attack.png", numFrames: 10},
+					deadSprite: {imgName: "luke_dead.png", numFrames: 4}, readySpriteE: {imgName: "luke_ready01E.png", numFrames: 7}, 
+					attackSpriteE: {imgName: "luke_attack01E.png", numFrames: 10}, deadSpriteE: {imgName: "luke_dead01E.png", numFrames: 4} 
+					},
 					leia = {name: "Princess Leia", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Leia.png", imgfightp: "Padme Amidala.png", imgfighte: "Padme AmidalaE.png", imgwin: "", imglose: ""},
+					imgrdy: "Leia.png", imgfightp: "Leia.png", imgfighte: "Leia.png", imgwin: "", imglose: "",
+					readySound: "Do as I tell you.mp3", attackSound: "leiablaster.mp3", deadSound: "Help me Obi Wan.mp3",
+					readySprite: {imgName: "leia_ready.png", numFrames: 4}, attackSprite: {imgName: "leia_attack.png", numFrames: 12},
+					deadSprite: {imgName: "leia_dead.png", numFrames: 3}, readySpriteE: {imgName: "leia_ready01E.png", numFrames: 4}, 
+					attackSpriteE: {imgName: "leia_attack01E.png", numFrames: 12}, deadSpriteE: {imgName: "leia_dead01E.png", numFrames: 3} 
+					},
 					chewy = {name: "Chewbacca", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Chewbacca.png", imgfightp: "chewy.png", imgfighte: "chewyE.png", imgwin: "", imglose: ""},
+					imgrdy: "Chewbacca.png", imgfightp: "chewy.png", imgfighte: "chewyE.png", imgwin: "", imglose: "",
+					readySound: "chewy_aaahhhhwwawahh.mp3", attackSound: "chewyblaster.mp3", deadSound: "chewy_argh.mp3",
+					readySprite: {imgName: "chewy_ready.png", numFrames: 4}, attackSprite: {imgName: "chewy_attack.png", numFrames: 10},
+					deadSprite: {imgName: "chewy_dead.png", numFrames: 3}, readySpriteE: {imgName: "chewy_ready01E.png", numFrames: 4}, 
+					attackSpriteE: {imgName: "chewy_attack01E.png", numFrames: 10}, deadSpriteE: {imgName: "chewy_dead01E.png", numFrames: 3} 
+					},
 					han = {name: "Han Solo", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Han Solo 01.png", imgfightp: "Han Solo 02.png", imgfighte: "Han Solo 02E.png", imgwin: "", imglose: ""},
+					imgrdy: "Han Solo 01.png", imgfightp: "Han Solo 02.png", imgfighte: "Han Solo 02E.png", imgwin: "", imglose: "",
+					readySound: "han_badfeeling.mp3", attackSound: "hsoloblaster.mp3", deadSound: "han_owww.mp3",
+					readySprite: {imgName: "hansolo_ready.png", numFrames: 7}, attackSprite: {imgName: "hansolo_attack.png", numFrames: 14},
+					deadSprite: {imgName: "hansolo_dead.png", numFrames: 3}, readySpriteE: {imgName: "hansolo_ready01E.png", numFrames: 7}, 
+					attackSpriteE: {imgName: "hansolo_attack01E.png", numFrames: 14}, deadSpriteE: {imgName: "hansolo_dead01E.png", numFrames: 3} 
+					},
 					yoda = {name: "Yoda", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Yoda 02.png", imgfightp: "Yoda 01.png", imgfighte: "Yoda 01E.png", imgwin: "", imglose: ""},
+					imgrdy: "Yoda 02.png", imgfightp: "Yoda 01.png", imgfighte: "Yoda 01E.png", imgwin: "", imglose: "",
+					readySound: "yoda_helpyouyes.mp3", attackSound: "ls_hit5.mp3", deadSound: "yoda_ahhohh.mp3",
+					readySprite: {imgName: "yoda_ready.png", numFrames: 5}, attackSprite: {imgName: "yoda_attack.png", numFrames: 17},
+					deadSprite: {imgName: "yoda_dead.png", numFrames: 3}, readySpriteE: {imgName: "yoda_ready01E.png", numFrames: 5}, 
+					attackSpriteE: {imgName: "yoda_attack01E.png", numFrames: 17}, deadSpriteE: {imgName: "yoda_dead01E.png", numFrames: 3} 
+					},
 					boba = {name: "Boba Fett", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Boba Fett.png", imgfightp: "Boba Fett.png", imgfighte: "Boba FettE.png", imgwin: "", imglose: ""},
+					imgrdy: "Boba Fett.png", imgfightp: "Boba Fett.png", imgfighte: "Boba FettE.png", imgwin: "", imglose: "",
+					readySound: "bobajets.mp3", attackSound: "bobablaster.mp3", deadSound: "I am Boba Fett.mp3",
+					readySprite: {imgName: "bobba_ready.png", numFrames: 3}, attackSprite: {imgName: "bobba_attack.png", numFrames: 8},
+					deadSprite: {imgName: "bobba_dead.png", numFrames: 3}, readySpriteE: {imgName: "bobba_ready01E.png", numFrames: 3}, 
+					attackSpriteE: {imgName: "bobba_attack01E.png", numFrames: 8},  deadSpriteE: {imgName: "bobba_dead01E.png", numFrames: 3}
+					},
 					r2d2 = {name: "R2-D2", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "R2D2 02.png", imgfightp: "R2D2 01.png", imgfighte: "R2D2 01E.png", imgwin: "", imglose: ""},
-					vader = {name: "Darth Vader", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Vader 01.png", imgfightp: "Vader 03.png", imgfighte: "Vader 03E.png", imgwin: "", imglose: ""},
-					maul = {name: "Darth Maul", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Darth Maul 02.png", imgfightp: "Darth Maul 01.png", imgfighte: "Darth Maul 01E.png", imgwin: "", imglose: ""},
-					c3po = {name: "C-3PO", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "C3PO.png", imgfightp: "C3PO.png", imgfighte: "C3POE.png", imgwin: "", imglose: ""},
+					imgrdy: "R2D2 02.png", imgfightp: "R2D2 01.png", imgfighte: "R2D2 01E.png", imgwin: "", imglose: "",
+					readySound: "r2d2_tone.mp3", attackSound: "r2d2_testy.mp3", deadSound: "r2d2_freakout.mp3",
+					readySprite: {imgName: "r2d2_ready.png", numFrames: 11}, attackSprite: {imgName: "r2d2_attack.png", numFrames: 6},
+					deadSprite: {imgName: "r2d2_dead.png", numFrames: 11}, readySpriteE: {imgName: "r2d2_ready01E.png", numFrames: 11},
+					attackSpriteE: {imgName: "r2d2_attack01E.png", numFrames: 6}, deadSpriteE: {imgName: "r2d2_dead01E.png", numFrames: 11}
+					},
+					vader = {name: "Darth Vader", type: "dark", hp: 0, ap: 0, api: 0,  cap: 0, 
+					imgrdy: "Vader 01.png", imgfightp: "Vader 03.png", imgfighte: "Vader 03E.png", imgwin: "", imglose: "",
+					readySound: "dv_dontknowpowerdarkside.mp3", attackSound: "ls_hit5.mp3", deadSound: "dv_nooooooooo.mp3",
+					readySprite: {imgName: "vader_ready.png", numFrames: 7}, attackSprite: {imgName: "vader_attack.png", numFrames: 12},
+					deadSprite: {imgName: "vader_dead.png", numFrames: 6}, readySpriteE: {imgName: "vader_ready01E.png", numFrames: 7}, 
+					attackSpriteE: {imgName: "vader_attack01E.png", numFrames: 12}, deadSpriteE: {imgName: "vader_dead01E.png", numFrames: 6} 
+					},
 					jabba = {name: "Jabba the Hut", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Java the Hutt.png", imgfightp: "Java the Hutt.png", imgfighte: "Java the HuttE.png", imgwin: "", imglose: ""},
+					imgrdy: "Java the Hutt.png", imgfightp: "Java the Hutt.png", imgfighte: "Java the HuttE.png", imgwin: "", imglose: "",
+					readySound: "jabba_oooohhh.mp3", attackSound: "jabba_hahahhohoho.mp3", deadSound: "jabba_wetsnort.mp3",
+					readySprite: {imgName: "jabba_ready.png", numFrames: 8}, attackSprite: {imgName: "jabba_attack.png", numFrames: 8},
+					deadSprite: {imgName: "jabba_dead.png", numFrames: 3}, readySpriteE: {imgName: "jabba_ready01E.png", numFrames: 8}, 
+					attackSpriteE: {imgName: "jabba_attack01E.png", numFrames: 8},  deadSpriteE: {imgName: "jabba_dead01E.png", numFrames: 3}
+					},
 					emperor = {name: "The Emperor", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "emperor.png", imgfightp: "emperor.png", imgfighte: "emperorE.png", imgwin: "", imglose: ""},
+					imgrdy: "emperor.png", imgfightp: "emperor.png", imgfighte: "emperorE.png", imgwin: "", imglose: "",
+					readySound: "emperor_fullpower.mp3", attackSound: "Electric.mp3", deadSound: "imperial.mp3",
+					readySprite: {imgName: "emperor_ready.png", numFrames: 4}, attackSprite: {imgName: "emperor_attack.png", numFrames: 9},
+					deadSprite: {imgName: "emperor_dead.png", numFrames: 3}, readySpriteE: {imgName: "emperor_ready01E.png", numFrames: 4}, 
+					attackSpriteE: {imgName: "emperor_attack01E.png", numFrames: 9},  deadSpriteE: {imgName: "emperor_dead01E.png", numFrames: 3}
+					},
 					ewok = {name: "Ewok", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Ewoks.png", imgfightp: "Wicket Warrick.png", imgfighte: "Wicket WarrickE.png", imgwin: "", imglose: ""},
+					imgrdy: "Ewoks.png", imgfightp: "Wicket Warrick.png", imgfighte: "Wicket WarrickE.png", imgwin: "", imglose: "",
+					readySound: "ewoks.mp3", attackSound: "ewoks.mp3", deadSound: "ewok_d.mp3",
+					readySprite: {imgName: "ewok_ready.png", numFrames: 10}, attackSprite: {imgName: "ewok_attack.png", numFrames: 6},
+					deadSprite: {imgName: "ewok_dead.png", numFrames: 3}, readySpriteE: {imgName: "ewok_ready01E.png", numFrames: 10}, 
+					attackSpriteE: {imgName: "ewok_attack01E.png", numFrames: 6},  deadSpriteE: {imgName: "ewok_dead01E.png", numFrames: 3}
+					},
 					storm = {name: "Storm Trooper", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Stormtrooper 02.png", imgfightp: "Stormtrooper 02.png", imgfighte: "Stormtrooper 02E.png", imgwin: "", imglose: ""}
+					imgrdy: "Stormtrooper 02.png", imgfightp: "Stormtrooper 02.png", imgfighte: "Stormtrooper 02E.png", imgwin: "", imglose: "",
+					readySound: "Its them.mp3", attackSound: "stormtroopblaster.mp3", deadSound: "Open the blast doors.mp3",
+					readySprite: {imgName: "storm_ready.png", numFrames: 3}, attackSprite: {imgName: "storm_attack.png", numFrames: 6},
+					deadSprite: {imgName: "storm_dead.png", numFrames: 3}, readySpriteE: {imgName: "storm_ready01E.png", numFrames: 3}, 
+					attackSpriteE: {imgName: "storm_attack01E.png", numFrames: 6},  deadSpriteE: {imgName: "storm_dead01E.png", numFrames: 3}
+					}
 				   ],
 		charsShuffled:[],
 		attribsShuffled: [],
@@ -82,6 +156,8 @@ $(document).ready(function() {
 		selEnemyIndex: 0,
 		Wins: 0,
 		GameOver: false,
+		gamePlayerChosen: false,
+		gameVSchosen: false,
 		bgindex: 0,
 		mdbgindex: 0,
 
@@ -93,6 +169,136 @@ $(document).ready(function() {
 			this.wins = 0;
 			this.GameOver = false;
 		},
+
+        animatePlayer: function(spriteState) {
+
+        	var framesP = 0;
+        	var imgP = "";
+        	var framesE = 0;
+        	var imgE = "";
+        	var soundP = "";
+        	var soundE = "";
+
+        	switch (spriteState) {
+
+        		case "readySprite":
+        			framesP = this.selPlayer.readySprite.numFrames
+        			imgP = "assets/images/sprites/" + this.selPlayer.readySprite.imgName
+        			soundP = this.selPlayer.readySound
+        			framesE = this.selEnemy.readySpriteE.numFrames
+        			imgE = "assets/images/sprites/" + this.selEnemy.readySpriteE.imgName
+        			soundE = this.selEnemy.readySound
+        			break;
+        		case "attackSprite":
+        			framesP = this.selPlayer.attackSprite.numFrames
+        			imgP = "assets/images/sprites/" + this.selPlayer.attackSprite.imgName
+        			soundP = this.selPlayer.attackSound
+        			framesE = this.selEnemy.attackSpriteE.numFrames
+        			imgE = "assets/images/sprites/" + this.selEnemy.attackSpriteE.imgName
+        			soundE = this.selEnemy.attackSound
+        			break;
+        		case "deadSpriteP":
+        			framesP = this.selPlayer.deadSprite.numFrames
+        			imgP = "assets/images/sprites/" + this.selPlayer.deadSprite.imgName
+        			soundP = this.selPlayer.deadSound
+        			framesE = this.selEnemy.attackSpriteE.numFrames
+        			imgE = "assets/images/sprites/" + this.selEnemy.attackSpriteE.imgName
+        			soundE = this.selEnemy.attackSound
+        			break;
+        		case "deadSpriteE":
+        			framesP = this.selPlayer.attackSprite.numFrames
+        			imgP = "assets/images/sprites/" + this.selPlayer.attackSprite.imgName
+        			soundP = this.selPlayer.attackSound
+        			soundE = this.selEnemy.deadSound
+        			framesE = this.selEnemy.deadSpriteE.numFrames
+        			imgE = "assets/images/sprites/" + this.selEnemy.deadSpriteE.imgName
+        			break;
+         	}
+
+        	$("#playerspritediv").empty();
+
+        	var canvasP = $("<canvas>").attr("id", "playersprite");
+			$("#playerspritediv").append(canvasP);
+
+			var $canvasP = $("#playersprite");
+
+			$canvasP.spriteAnimate({
+  			frameWidth: 120,
+  			frameHeight: 100,
+  			fps: 7,
+  			loop: false,
+  			numberOfFrames: framesP,
+  			imgSrc: imgP,
+			});
+
+			// $canvasP.spriteAnimate("play");
+
+        	$("#enemyspritediv").empty();
+
+        	var canvasE = $("<canvas>").attr("id", "enemysprite");
+			$("#enemyspritediv").append(canvasE);
+
+			var $canvasE = $("#enemysprite");
+
+			$canvasE.spriteAnimate({
+  			frameWidth: 120,
+  			frameHeight: 100,
+  			fps: 5,
+  			loop: false,
+  			numberOfFrames: framesE,
+  			imgSrc: imgE,
+			});
+
+			// $canvasE.spriteAnimate("play");
+
+			// $.each($('audio'), function () {
+   			//   this.pause();
+			// });
+
+			// $('audio').AudioPlayerV1('pause');
+
+			// $("audio").prop("muted", true);
+
+			// sound.pause();
+			// sound.currentTime = 0;
+
+			var audioP = new Audio;
+			var audioE = new Audio;
+
+			audioP.src = "assets/audio/" + soundP;
+			audioE.src = "assets/audio/" + soundE;
+
+			switch (spriteState) {
+
+        		case "readySprite":
+        			$canvasP.spriteAnimate("play");
+					audioP.onended = (function() {
+										audioE.play()
+										$canvasE.spriteAnimate("play")
+										})
+					audioP.play()
+        			break;
+        		case "attackSprite":
+        			$canvasP.spriteAnimate("play");
+        			$canvasE.spriteAnimate("play");
+        			audioP.play()
+        			audioE.play()
+        			break;
+        		case "deadSpriteP":
+        			$canvasP.spriteAnimate("play");
+        			$canvasE.spriteAnimate("play");
+        			audioP.onended = (function() {audioE.play()})
+        			audioP.play()
+        			break;
+        		case "deadSpriteE":
+        			$canvasP.spriteAnimate("play");
+        			$canvasE.spriteAnimate("play");
+					audioE.onended = (function() {audioP.play()})
+					audioE.play()
+        			break;
+         	};
+
+        },          
 
 		initSelChars: function() {
 
@@ -126,7 +332,7 @@ $(document).ready(function() {
 				playerClass = "player" + i.toString();
 				var newPlayerDiv = $("<div>").addClass("flex-container player " + playerClass)
 				    .attr("id", this.selChars[i].type).attr("data-player-chosen", "no").attr("data-vs-chosen", "no")
-				    .attr("data-player-id", i).attr("data-defeated", false)
+				    .attr("data-player-id", i).attr("data-defeated", false).attr("data-type", this.selChars[i].type)
 
 				var newPlayerNameDiv = $("<div>").addClass("text-center flex-item playerName");
 				
@@ -157,10 +363,6 @@ $(document).ready(function() {
 		}, // end writeChoosePlayer
 
 		createBattlefield: function() {
-			// $("body").css("background-image", "url(\"assets/images/backdrop08.jpg\") no-repeat");
-			// $("chooseplyrhdr").css("display", "none");
-			// $("chooseplyr").css("display", "none");
-			// $("chooseopphdr").css("display", "none");
 
 			var vsTitle = this.selPlayer.name + " vs. " + this.selEnemy.name;
 			var battleClass = ".battleground"
@@ -179,6 +381,10 @@ $(document).ready(function() {
 			var retreatButton = $("<button>").attr("type", "button").attr("data-dismiss", "modal").addClass("btn btn-lg btn-retreat").text("Retreat");
 
 			$(".modal-btn-group").append(attackButton).append(retreatButton);
+
+			//use a setTimeout to delay the ready animation to allow for the modal to drop in before animation begins
+			setTimeout(function() {starwars.animatePlayer("readySprite")}, 1000);
+
 
 			$("#battleModal").modal({
 				backdrop: "static",
@@ -366,7 +572,7 @@ $(document).ready(function() {
         		this.bgindex = 0;
         	};
 
-    	   	$("body").css("background", "url("+imgs[this.bgindex]+")");
+    	   	$("body").css({"background-image": "url("+imgs[this.bgindex]+")"});
     	},
 
 		changeModalBackground: function (){
@@ -383,7 +589,7 @@ $(document).ready(function() {
         		this.mdbgindex = 0;
         	};
 
-    	   	$(".battleground-body").css("background", "url("+imgs[this.mdbgindex]+")");
+    	   	$(".battleground-body").css({"background-image":"url("+imgs[this.mdbgindex]+")"});
     	},
 		resetGame: function() {
 
@@ -398,6 +604,8 @@ $(document).ready(function() {
 			this.initSelChars();
 			this.wins = 0;
 			this.GameOver = false;		
+			this.gamePlayerChosen = false;
+			this.gameVSchosen = false;
 
 		}
 
@@ -419,7 +627,7 @@ $(document).on("click", ".player", function() {
 			var chosenPlayerId = ($(this).data("player-id"));
 			var defeatedOpp = ($(this).data("defeated"));
 
-			if (playerChosen === "no") {
+			if (!(starwars.gamePlayerChosen)) {
 				$(".chooseopphdr").append("<h1>Choose Your Opponent</h1>");
 				starwars.selPlayer = starwars.selChars[chosenPlayerId];
 				starwars.selPlayerIndex = chosenPlayerId;
@@ -433,14 +641,24 @@ $(document).on("click", ".player", function() {
 
 		        $(this).animate({ left: "0px" }, "normal");
 
-		        $(".player").data("player-chosen", "yes");
+		        // $(".player").data("player-chosen", "yes");
+		        $(this).data("player-chosen", "yes");
+		        starwars.gamePlayerChosen = true;
 
 		    } //end if
 	    	else if (!(defeatedOpp) && (!(starwars.selPlayer === starwars.selChars[chosenPlayerId]))) {
     			starwars.selEnemy = starwars.selChars[chosenPlayerId];
     			starwars.selEnemyIndex = chosenPlayerId;
 
-    			$(".player").data("vs-chosen", "yes");
+    			// $(".player").data("vs-chosen", "yes");
+    			$(this).data("vs-chosen", "yes");
+    			starwars.gameVSchosen = true;
+
+	        	$("#playerspritediv").empty();
+	        	$("#enemyspritediv").empty();
+
+	        	$("#playersounddiv").empty();
+	        	$("#enemysounddiv").empty();
 
     			starwars.createBattlefield();
     
@@ -457,7 +675,9 @@ $(document).on("click", ".btn-attack", function() {
 	// If Enemy is not defeated, Enemy will Counter Attack and inflict damage equal to Counter Attack Points
 	// Check to see if Player has been defeated
 
-	starwars.selEnemy.hp -= starwars.selPlayer.ap
+	starwars.animatePlayer("attackSprite");
+
+	starwars.selEnemy.hp -= starwars.selPlayer.ap;
 
 	
 	if (starwars.selEnemy.hp > 0) {
@@ -466,7 +686,7 @@ $(document).on("click", ".btn-attack", function() {
 		//alert Player of results
 		$("div.battleground-messages").html("<p class = \"battleground-message\">" + starwars.selPlayer.name + " Attacked " + 
 			starwars.selEnemy.name + " and caused " + starwars.selPlayer.ap + " points of damage!")
-		// icrease attack power for next attack
+		// increase attack power for next attack
 		starwars.selPlayer.ap += starwars.selPlayer.api
 		//counter-attack
 		starwars.selPlayer.hp -= starwars.selEnemy.cap
@@ -477,6 +697,7 @@ $(document).on("click", ".btn-attack", function() {
 		if (starwars.selPlayer.hp <= 0) {
 			starwars.selPlayer.hp = 0;
 			// process player loss
+			starwars.animatePlayer("deadSpriteP");
 			starwars.gameoverSeq("loss");
 
 			//Game Over
@@ -490,6 +711,9 @@ $(document).on("click", ".btn-attack", function() {
 		starwars.selPlayer.ap += starwars.selPlayer.api;
 		//update Enemy card
 		$("div.enemyfighter").children("div.hp").html("<p>HP: " + starwars.selEnemy.hp + "</p>");
+
+		starwars.animatePlayer("deadSpriteE");
+
 		//update cards and close window via retreat button click
 		//Mark Enemy as being defeated in the opponent area
 		//Check to see if Player has won the game		
@@ -527,6 +751,34 @@ $(document).on("click", ".btn-newgame", function() {
 
 
 }); // close btn-newgame.onclick
+
+$(document).on("mouseover", ".player", function() { 
+	
+	var playerChosen = ($(this).data("player-chosen"));
+	var defeatedOpp = ($(this).data("defeated"));
+	var playerType = ($(this).data("type"));
+
+	if ((playerChosen === "no") && (defeatedOpp === false)) {
+		if (playerType === "rebel") {
+			$(this).children("div").children("img").glow({ radius: "20", color:"green"});
+		} else {
+			$(this).children("div").children("img").glow({ radius: "20", color:"red"});
+		}
+	}
+
+}); // close player on mouseover
+
+$(document).on("mouseout", ".player", function() { 
+	
+	var playerChosen = ($(this).data("player-chosen"));
+	var defeatedOpp = ($(this).data("defeated"));
+	var playerType = ($(this).data("type"));
+
+	if ((playerChosen === "no") && (defeatedOpp === false)) {
+		$(this).children("div").children("img").glow({ disable:true });
+	}
+
+}); // close player on mouseover
 
 
 }); // close of document.ready 
