@@ -177,6 +177,13 @@ $(document).ready(function() {
 			this.wins = 0;
 			this.characterWins = 0;
 			this.GameOver = false;
+			this.displayLevel();
+		},
+
+		displayLevel: function() {
+
+			$(".level").html("Level " + this.gameLevel);
+
 		},
 
         animatePlayer: function(spriteState) {
@@ -715,6 +722,7 @@ $(document).ready(function() {
 			this.changeModalBackground();
 			this.chooseCharacters();
 			this.writeChosenCharacters();
+			this.displayLevel();
 		}
 
 	}; // end starwars game object

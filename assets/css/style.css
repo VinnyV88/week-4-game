@@ -40,24 +40,10 @@
     to {opacity: 0;}
  }
 
-@keyframes miss {
-    from {opacity: 0;}
-    to {opacity: 1;}
- }
-
-.miss {
-    animation-name: miss;
-    animation-duration: 4s;
-    animation-iteration-count: 1;
-}
-
-
 .gameoverFlash {
   animation-name: flash;
   animation-iteration-count: 3;
   animation-duration: .5s;
-  /*animation-delay: 4.5s;*/
-
 }
 
 .battleground-message {
@@ -211,6 +197,21 @@ body {
 	position: absolute;
 	top: 0px;
 	left: 0px;
+}
+
+.level {
+	position: absolute;
+	top: 0px;
+	left: 835px;
+	font-family: 'Share Tech', sans-serif;
+	color: gold;
+	font-size: 50px;
+	-webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+	animation-name: flash;
+    animation-iteration-count: 3;
+    animation-duration: .5s;
+    animation-delay: 1s;
 }
 
 .chooseopphdr {
