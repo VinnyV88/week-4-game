@@ -68,12 +68,19 @@ $(document).ready(function() {
 					deadSprite: {imgName: "r2d2_dead.png", numFrames: 11}, readySpriteE: {imgName: "r2d2_ready01E.png", numFrames: 11},
 					attackSpriteE: {imgName: "r2d2_attack01E.png", numFrames: 6}, deadSpriteE: {imgName: "r2d2_dead01E.png", numFrames: 11}
 					},
-					emperor = {name: "The Emperor", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "emperor.png", imgfightp: "emperor.png", imgfighte: "emperorE.png", imgwin: "", imglose: "",
-					readySound: "emperor_fullpower.mp3", attackSound: "Electric.mp3", deadSound: "imperial.mp3",
-					readySprite: {imgName: "emperor_ready.png", numFrames: 4}, attackSprite: {imgName: "emperor_attack.png", numFrames: 9},
-					deadSprite: {imgName: "emperor_dead.png", numFrames: 3}, readySpriteE: {imgName: "emperor_ready01E.png", numFrames: 4}, 
-					attackSpriteE: {imgName: "emperor_attack01E.png", numFrames: 9},  deadSpriteE: {imgName: "emperor_dead01E.png", numFrames: 3}
+					yoda = {name: "Yoda", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
+					imgrdy: "Yoda 02.png", imgfightp: "Yoda 01.png", imgfighte: "Yoda 01E.png", imgwin: "", imglose: "",
+					readySound: "yoda_helpyouyes.mp3", attackSound: "ls_hit5.mp3", deadSound: "yoda_ahhohh.mp3",
+					readySprite: {imgName: "yoda_ready.png", numFrames: 5}, attackSprite: {imgName: "yoda_attack.png", numFrames: 17},
+					deadSprite: {imgName: "yoda_dead.png", numFrames: 3}, readySpriteE: {imgName: "yoda_ready01E.png", numFrames: 5}, 
+					attackSpriteE: {imgName: "yoda_attack01E.png", numFrames: 17}, deadSpriteE: {imgName: "yoda_dead01E.png", numFrames: 3} 
+					},
+					ewok = {name: "Ewok", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
+					imgrdy: "Ewoks.png", imgfightp: "Wicket Warrick.png", imgfighte: "Wicket WarrickE.png", imgwin: "", imglose: "",
+					readySound: "ewoks.mp3", attackSound: "ewoks.mp3", deadSound: "ewok_d.mp3",
+					readySprite: {imgName: "ewok_ready.png", numFrames: 10}, attackSprite: {imgName: "ewok_attack.png", numFrames: 6},
+					deadSprite: {imgName: "ewok_dead.png", numFrames: 3}, readySpriteE: {imgName: "ewok_ready01E.png", numFrames: 10}, 
+					attackSpriteE: {imgName: "ewok_attack01E.png", numFrames: 6},  deadSpriteE: {imgName: "ewok_dead01E.png", numFrames: 3}
 					},
 					storm = {name: "Storm Trooper", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
 					imgrdy: "Stormtrooper 02.png", imgfightp: "Stormtrooper 02.png", imgfighte: "Stormtrooper 02E.png", imgwin: "", imglose: "",
@@ -126,13 +133,13 @@ $(document).ready(function() {
 					deadSprite: {imgName: "leia_dead.png", numFrames: 3}, readySpriteE: {imgName: "leia_ready01E.png", numFrames: 4}, 
 					attackSpriteE: {imgName: "leia_attack01E.png", numFrames: 12}, deadSpriteE: {imgName: "leia_dead01E.png", numFrames: 3} 
 					},
-					yoda = {name: "Yoda", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					imgrdy: "Yoda 02.png", imgfightp: "Yoda 01.png", imgfighte: "Yoda 01E.png", imgwin: "", imglose: "",
-					readySound: "yoda_helpyouyes.mp3", attackSound: "ls_hit5.mp3", deadSound: "yoda_ahhohh.mp3",
-					readySprite: {imgName: "yoda_ready.png", numFrames: 5}, attackSprite: {imgName: "yoda_attack.png", numFrames: 17},
-					deadSprite: {imgName: "yoda_dead.png", numFrames: 3}, readySpriteE: {imgName: "yoda_ready01E.png", numFrames: 5}, 
-					attackSpriteE: {imgName: "yoda_attack01E.png", numFrames: 17}, deadSpriteE: {imgName: "yoda_dead01E.png", numFrames: 3} 
-					},
+					emperor = {name: "The Emperor", type: "dark", hp: 0, ap: 0, api: 0, cap: 0, 
+					imgrdy: "emperor.png", imgfightp: "emperor.png", imgfighte: "emperorE.png", imgwin: "", imglose: "",
+					readySound: "emperor_fullpower.mp3", attackSound: "Electric.mp3", deadSound: "imperial.mp3",
+					readySprite: {imgName: "emperor_ready.png", numFrames: 4}, attackSprite: {imgName: "emperor_attack.png", numFrames: 9},
+					deadSprite: {imgName: "emperor_dead.png", numFrames: 3}, readySpriteE: {imgName: "emperor_ready01E.png", numFrames: 4}, 
+					attackSpriteE: {imgName: "emperor_attack01E.png", numFrames: 9},  deadSpriteE: {imgName: "emperor_dead01E.png", numFrames: 3}
+					},					
 					vader = {name: "Darth Vader", type: "dark", hp: 0, ap: 0, api: 0,  cap: 0, 
 					imgrdy: "Vader 01.png", imgfightp: "Vader 03.png", imgfighte: "Vader 03E.png", imgwin: "", imglose: "",
 					readySound: "dv_dontknowpowerdarkside.mp3", attackSound: "ls_hit5.mp3", deadSound: "dv_nooooooooo.mp3",
@@ -141,13 +148,6 @@ $(document).ready(function() {
 					attackSpriteE: {imgName: "vader_attack01E.png", numFrames: 12}, deadSpriteE: {imgName: "vader_dead01E.png", numFrames: 6} 
 					}],
 
-					// ewok = {name: "Ewok", type: "rebel", hp: 0, ap: 0, api: 0, cap: 0, 
-					// imgrdy: "Ewoks.png", imgfightp: "Wicket Warrick.png", imgfighte: "Wicket WarrickE.png", imgwin: "", imglose: "",
-					// readySound: "ewoks.mp3", attackSound: "ewoks.mp3", deadSound: "ewok_d.mp3",
-					// readySprite: {imgName: "ewok_ready.png", numFrames: 10}, attackSprite: {imgName: "ewok_attack.png", numFrames: 6},
-					// deadSprite: {imgName: "ewok_dead.png", numFrames: 3}, readySpriteE: {imgName: "ewok_ready01E.png", numFrames: 10}, 
-					// attackSpriteE: {imgName: "ewok_attack01E.png", numFrames: 6},  deadSpriteE: {imgName: "ewok_dead01E.png", numFrames: 3}
-					// },
 		charsShuffled:[],
 		attribsShuffled: [],
 	   	selChars: [],
@@ -181,6 +181,22 @@ $(document).ready(function() {
 		},
 
 		displayLevel: function() {
+
+			var levelAudio  = new Audio;
+
+			switch (this.gameLevel) {
+				case 1:
+					levelAudio.src = "assets/audio/maintheme.mp3";
+					break;
+				case 2:
+					levelAudio.src = "assets/audio/maintheme.mp3";
+					break;
+				case 3:
+					levelAudio.src = "assets/audio/imperial.mp3";
+					break;
+			}
+
+			levelAudio.play();
 
 			$(".level").html("Level " + this.gameLevel);
 
