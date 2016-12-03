@@ -157,6 +157,18 @@ body {
     border-radius: 25px;
 }
 
+.flex-victorious {
+	width: 200px;
+    height: 300px;
+    background-color: white;
+    opacity: .6;
+    z-index: 100;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    border-radius: 25px;
+}
+
 .defeated {
 	font-family: 'Share Tech', sans-serif;
   	font-size: 56px;
@@ -168,6 +180,19 @@ body {
     position: absolute;
     top: 112px;
     left: -7px;
+}
+
+.victorious {
+	font-family: 'Share Tech', sans-serif;
+  	font-size: 50px;
+  	font-weight: bold;
+  	color: #337ab7;
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+    position: absolute;
+    top: 105px;
+    left: -15px;
 }
 
 .flex-item {
