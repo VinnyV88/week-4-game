@@ -1,3 +1,25 @@
+#logo {
+	position: absolute;
+	left: 211px;
+	top: 375px;
+	display: none;
+}
+
+.level {
+	position: absolute;
+	top: 613px;
+	left: 346px;
+	display: none;
+	font-family: 'Share Tech', sans-serif;
+	color: gold;
+	font-size: 50px;
+	-webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+	animation-name: flash;
+    animation-iteration-count: 3;
+    animation-duration: .5s;
+    animation-delay: 1s;
+}
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
 	color: white;
@@ -197,21 +219,6 @@ body {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-}
-
-.level {
-	position: absolute;
-	top: 0px;
-	left: 835px;
-	font-family: 'Share Tech', sans-serif;
-	color: gold;
-	font-size: 50px;
-	-webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-	animation-name: flash;
-    animation-iteration-count: 3;
-    animation-duration: .5s;
-    animation-delay: 1s;
 }
 
 .chooseopphdr {
