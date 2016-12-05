@@ -5,6 +5,18 @@
 	display: none;
 }
 
+#help {
+	position: absolute;
+	top: 5px;
+	left: 704px;
+	cursor: pointer;
+	font-size: 28px;
+	text-shadow: 0 2px 0 #1d5510;
+	margin-top: 0px;
+	color: white;
+	font-family: 'Share Tech', sans-serif;
+}
+
 .level {
 	position: absolute;
 	top: 613px;
@@ -300,6 +312,16 @@ body {
     background-color: #525E6E;
   }
 
+.help-body {
+	background-image: url("../images/backdrop09.jpg"); 
+	min-height: 575px;
+    background-size: cover;
+    background-color: #525E6E;
+  }
+
+.help {
+	color: white;
+}
 
 .btn-lg {
 	background: #525E6E;

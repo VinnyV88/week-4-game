@@ -19,8 +19,9 @@
     <div class="container" id="game-container">
         <div class="level">
         </div>
+        <div id="help"">Help</div>
         <div class="chooseplyrhdr">
-            <h1>Choose Your Player</h1>
+            <h1>Choose Your Player</h1> 
         </div>
         <div class="main-messages">
         </div>
@@ -48,6 +49,64 @@
                     </div>
                     <div class="modal-footer">
                         <div class="modal-btn-group">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- How to play Modal -->
+        <div id="helpModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title help-title text-center">Help: How to play</h4>
+                    </div>
+                    <div class="modal-body help-body">
+                        <div class="help">
+                            <h3>How to win:</h3>
+                            <ul>
+                                <li>Select your character and defeat all other characters before losing all of your HP(health points).</li>
+                                <li>Do this with all four characters to advance to the next level.</li>
+                                <li>Each level has their own set of characters and environments. (There are 3 Level at this time)</li>
+                            </ul>
+                            
+                            <h3>Player Area Controls:</h3>
+                                <ul>
+                                    <li>When the game starts, choose a character by clicking on the fighter's picture. You will fight as that character for the rest of the game.</li>
+                                    <li>You must then defeat all of the remaining fighters.</li>
+                                    <li>You choose an opponent by clicking on an enemy's picture.</li>
+                                    <li>Once You select an opponent, your character and your enemy are moved to the battlefield.</li>
+                                </ul>
+                                <h3>Battlefield Controls:</h3>
+                                <ul>
+                                    <li>You will now be able to click the <code>attack</code> or <code>retreat</code> button.</li>
+                                    <li>Whenever you click <code>attack</code>, your character damages the defender. The opponent will lose <code>HP</code>(health points). These points are displayed at the bottom of the defender's picture.</li>
+                                    <li>The opponent character will instantly counter the attack. When that happens, your character will lose some of their <code>HP</code>. These points are shown at the bottom of your character's picture.</li>
+                                    <li>You have the option to click <code>retreat</code> at any time to leave the battlefield and choose a different opponent.</li>
+                                    <li>The battle will continue until either your character or your opponent is drained of all of their <code>HP</code>or you retreat.</li>
+                                    <li>When you defeat an opponent, close the battlefield and choose your next opponent.</li>
+                                    <li>After you defeat all opponents, you will continue the level by choosing a new character to fight with.</li>
+                                    <li>Once you have won the game with all four characters, you can advance to the next level.</li>
+                                </ul>
+                            <p><strong>Hints:</strong></p>
+                            <ul>
+                                <li>Each character in the game has 3 attributes: <code>Health Points</code>, <code>Attack Power</code> and <code>Counter Attack Power</code>.</li>
+                                <li>Each time your character attacks, their <code>Attack Power</code> increases by its base <code>Attack Power</code>.</li>
+                                <ul>
+                                    <li>For example, if the base Attack Power is 6, each attack will increase the <code>Attack Power</code> by 6 (12, 18, 24, 30 and so on).</li>
+                                </ul>
+                                <li>The enemy character only has <code>Counter Attack Power</code>.</li>
+                                <ul>
+                                    <li>Unlike your <code>Attack Points</code>, <code>Counter Attack Power</code> never changes.</li>
+                                    <li>A winning player must pick their characters wisely.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="modal-btn-group">
+                            <button type="button" data-dismiss="modal" class="btn btn-lg">Close</button>
                         </div>
                     </div>
                 </div>

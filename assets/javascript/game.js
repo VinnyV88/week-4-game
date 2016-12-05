@@ -542,7 +542,7 @@ $(document).ready(function() {
 				}
 
 				var gameoverMessage = "<h3>" + this.selPlayer.name + " has defeated all opponents!<br><br>" +
-				"Press the Replay button to play this game again with a different character.<br>" +
+				"Press the Continue button to play this game again with a different character.<br>" +
 				"Once you have won this game with all four characters, you can move on to the next level!</h3><br><br>";
 				var gameoverHTML = "<p class = \"gameoverFlash text-center\">You Won!</p><br>"
 				var gameoverModalMsg = this.selPlayer.name + " has defeated all opponents!";
@@ -551,7 +551,7 @@ $(document).ready(function() {
 
 				$(".enemyfighter").append(EnemyDefDiv);
 
-				var replayButton = $("<button>").attr("type", "button").addClass("btn btn-lg btn-gameover btn-replay").text("Replay");
+				var replayButton = $("<button>").attr("type", "button").addClass("btn btn-lg btn-gameover btn-replay").text("Continue");
 				gameoverButtonsDiv.append(replayButton);
 
 			} else { //results = win, level complete!
@@ -916,6 +916,15 @@ $(document).on("mouseout", ".player", function() {
 	}
 
 }); // close player on mouseover
+
+$(document).on("click", "#help", function() {
+
+	$("#helpModal").modal({
+		backdrop: "static",
+		keyboard: false});
+
+
+}); // close help.onclick
 
 
 }); // close of document.ready 
