@@ -199,8 +199,6 @@ $(document).ready(function() {
 			levelAudio.play();
 
 			$(".level").html("Level " + this.gameLevel);
-			// $(".level").css({"display":"inline-block"});
-			// $("#logo").css({"display":"inline-block"});
 			$(".level").fadeIn(2000, "swing").delay(3000).fadeOut();
 			$("#logo").fadeIn(500).delay(4500).fadeOut();
 
